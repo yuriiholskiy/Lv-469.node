@@ -1,0 +1,22 @@
+{
+  "name": "alg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "ts-node": "^8.5.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2",
+    "typescript": "^3.7.4"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**/*.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

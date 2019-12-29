@@ -1,0 +1,263 @@
+:root {
+	--base-font: 10px;
+	--nav-bg-color: #6c757d;
+	--body-bg-color: #ddd;
+	--heading-color: rgba(0, 0, 0, .7);
+	--triangle-width: 30px;
+}
+
+html {
+	font-size: --var(base-font);
+	box-sizing: border-box;
+}
+::selection {
+	background-color: #bbb;
+}
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--body-bg-color);
+}
+ul {
+	list-style-type: none;
+	margin: 0;	 
+	padding: 0;
+}
+ol {
+	margin: 0;
+}
+a {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+}
+a.link {
+	color: #000;
+	text-decoration: underline;
+}
+a,
+button {
+	font-family: inherit;
+}
+p {
+	margin-bottom: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0;
+	color: var(--heading-color);
+}
+
+.container {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 1.5rem;
+}
+
+.logo-img {
+	width: 56px;
+	height: 56px;
+}
+
+/*  helpers classes  */
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.flex-around {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.flex-center {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/*  helpers classes  */
+
+
+/* Navigation Style Starts*/
+.header {
+	position: relative;
+	height: 70px;
+}
+.navigation {
+	padding: .5rem 3rem;
+	background-color: var(--nav-bg-color);
+	color: #fff;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, .7);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.nav-list {
+	display: flex;
+}
+.nav-list-item:not(:last-child) {
+	margin-right: 1.5rem;
+}
+.nav-list-link {
+	transition: .3s color, .3s transform;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	padding: .5rem;
+}
+.nav-list-link.active {
+	color: #ddd;
+}
+.nav-list-link.active::after {
+	transform: scale(1);
+}
+.nav-list-link:focus {
+	color: #ddd;
+}
+.nav-list-link:focus::after {
+	transform: scale(1);
+}
+.nav-list-link::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+	transition: .3s transform;
+	transform-origin: center;
+	transform: scale(0);
+}
+.nav-list-link:hover {
+	color: #ddd;
+}
+.nav-list-link:hover::after {
+	transform: scale(1);
+}
+
+.nav-dropdown-active:focus + .nav-dropdown {
+	transform: translateY(0);
+}
+
+/* Navigation Style ends*/
+
+
+/* Dropdown Style starts */
+
+.nav-dropdown {
+	position: absolute;
+	top: 75%;
+	left: calc(72px + 65px);
+	padding: .5rem 1rem;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	font-size: 1.1rem;
+	transition: .3s transform;
+	transform: translateY(-500px);
+}
+
+.nav-dropdown-top {
+	background-color: grey;
+	padding: .5rem 1rem .5rem .2rem;
+	display: flex;
+	position: relative;
+}
+.nav-dropdown-top::after { 
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: calc(var(--triangle-width) * -1);
+	width: var(--triangle-width);
+	clip-path: polygon(40% 50%, 0 0, 0 100%);
+	height: 100%;
+	background-color: grey;
+} 
+.nav-dropdown-link {
+	display: block;
+	transition: .3s color;
+}
+.nav-dropdown-link:not(:first-child) {
+	margin-top: 1rem;
+}
+.nav-dropdown-link:hover {
+	color: #ddd;
+}
+.nav-dropdown-bottom {
+	margin-top: 1rem;
+}
+
+/* Dropdown Style ends */
+
+/* Main Style Starts */
+.main-content {
+	/*background: url('./images/main-bg.jpeg') no-repeat center center / cover;*/
+	/*background-color: var(--body-bg-color);*/
+	/*min-height: 40rem;*/
+	font-family: 'PT serif', serif;
+}
+.main-banner-image {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+}
+.main-head {
+	font-size: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 0;
+	text-transform: capitalize;
+}
+.main-subhead {
+	display: block;
+	font-size: 1.3rem;
+	font-weight: normal;
+}
+.main-block {
+	font-size: 1.2rem;
+}
+.main-paragraph {
+	line-height: 1.8rem;
+	text-align: left;
+}
+.main-paragraph:not(:first-child) {
+	margin-top: 1rem;
+}
+.main-paragraph-link {
+	color: #000;
+	text-decoration: underline;
+}
+/* Main Style Ends */
+
+
+/* Footer Style Starts */
+.footer {
+	background-color: var(--nav-bg-color);
+	margin-top: 1.5rem;
+	padding: 1rem;
+	color: #fff;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, .7);
+}
+.footer-paragraph {
+	margin: 0;
+	font-size: 1.1rem;
+}
+/* Footer Style Ends */
