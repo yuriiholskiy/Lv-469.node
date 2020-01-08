@@ -1,0 +1,17 @@
+/* Footer Style Starts */
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	
+	margin-top: 1.5rem;
+	padding: 1rem;
+	background-color: var(--nav-bg-color);
+	color: #fff;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, .7);
+}
+.footer-paragraph {
+	margin: 0;
+	font-size: 1.1rem;
+}
+/* Footer Style Ends */

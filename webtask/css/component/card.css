@@ -1,0 +1,26 @@
+.card {
+	padding: 1rem;
+	box-shadow: 0 5px 15px var(--nav-bg-color);
+	background-color: var(--nav-bg-color);
+	border-radius: 5px;
+	color: #fff;
+	transition: transform .3s ease-in-out;
+}
+.card:hover {
+	transform: scale(1.02);
+}
+
+.card-caption {
+	border-top: 1px solid #fff;
+}
+
+.card-title {
+	font-size: 1.4rem;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-top: 1rem;
+}
+
+.card-content {
+
+}

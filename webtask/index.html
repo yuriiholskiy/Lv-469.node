@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Table Tennis</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-	<div class="app">
+	<div class="main">
 		<header class="header">
 			<nav class="navigation flex-between">
-				<ul class="nav-list">
+				<ul class="nav-list anim-trX-middle">
 					<li class="nav-list-item">
 						<a href="#" class="nav-list-link active">main</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="#" class="nav-list-link nav-dropdown-active">matches</a>
-						<ul class="nav-dropdown">
+						<ul class="nav-dropdown" id="matches">
 							<li class="nav-dropdown-top">
 								<a href="#" class="nav-dropdown-link">
-									Calendar of matches
+									To top
 								</a>
 							</li>
 							<li class="nav-dropdown-bottom">
-								<a href="#" class="nav-dropdown-link">Next game</a>
-								<a href="#" class="nav-dropdown-link">Raitings</a>
+								<a href="#history" class="nav-dropdown-link">History</a>
+								<a href="#last-victory" class="nav-dropdown-link">Last victory</a>
 							</li>
 						</ul>
+						<a href="#matches" class="nav-list-link nav-dropdown-active">
+							<span class="nav-list-dropdown">matches</span>
+						</a>
 					</li>
 					<li class="nav-list-item">
-						<a href="#news" class="nav-list-link">news</a>
+						<a href="news.html" class="nav-list-link">news</a>
 					</li>
 					<li class="nav-list-item">
 						<a href="#fans" class="nav-list-link">fans</a>
@@ -41,7 +44,7 @@
 						<a href="#admin" class="nav-list-link">admin</a>
 					</li>
 				</ul>
-				<picture class="logo">
+				<picture class="logo anim-trX-opposite-middle">
 					<source srcset="./images/logo.svg" type="image/svg+xml">
 					<a href="#">
 						<img src="./images/logo.png" alt="Table tennis" class="logo-img">
@@ -50,9 +53,9 @@
 			</nav>
 		</header>
 		<main class="main-content">
-			<img src="./images/main-bg.jpeg" alt="Table tennis" class="main-banner-image">
+			<img src="./images/main-bg.jpeg" alt="Table tennis" class="main-banner-image anim-bounce-fast">
 			<div class="container">
-				<div class="main-block">
+				<div class="main-block" id="history">
 					<h1 class="main-head text-center">
 						table tennis
 						<span class="main-subhead">(a brief history)</span>
@@ -75,7 +78,7 @@
 							 href="https://www.britannica.com/sports/table-tennis">britannica</a>.
 					</small>
 				</div>
-				<div class="main-block">
+				<div class="main-block" id="last-victory">
 					<h2 class="main-head text-center">
 						last victory
 					</h2>

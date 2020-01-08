@@ -1,0 +1,141 @@
+/* Navigation Style Starts*/
+.header {
+	position: relative;
+	height: 70px;
+}
+.navigation {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	padding: .5rem 3rem;
+
+	background-color: var(--nav-bg-color);
+	color: #fff;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, .7);
+}
+.nav-list {
+	display: flex;
+}
+.nav-list-item {
+	position: relative;
+}
+.nav-list-item:not(:last-child) {
+	margin-right: 1.5rem;
+}
+.nav-list-link {
+	padding: .5rem;
+	transition: .3s color, .3s transform;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+}
+.nav-list-link.active {
+	color: #ddd;
+}
+.nav-list-link.active::after {
+	transform: scale(1);
+}
+.nav-list-link:focus {
+	color: #ddd;
+}
+.nav-list-link:focus::after {
+	transform: scale(1);
+}
+.nav-list-link::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
+	transition: .3s transform;
+	transform-origin: center;
+	transform: scale(0);
+}
+.nav-list-link:hover {
+	color: #ddd;
+}
+.nav-list-link:hover::after {
+	transform: scale(1);
+}
+.nav-list-dropdown {
+	display: block;
+}
+.nav-list-dropdown::after {
+	content: '↓';
+	width: 5px;
+	height: 5px;
+	margin-left: 5px;
+}
+.nav-dropdown:target {
+	transform: translateY(0);
+}
+.nav-dropdown:target + .nav-list-link > .nav-list-dropdown::after {
+	content: '↑';
+}
+
+.logo {
+	transition: transform .5s ease;
+}
+.logo:hover {
+	transform: rotate(360deg);
+}
+
+.logo-img {
+	width: 56px;
+	height: 56px;
+}
+
+/* Navigation Style ends*/
+
+
+/* Dropdown Style starts */
+
+.nav-dropdown {
+	position: absolute;
+	top: 90%;
+	left: 10px;
+	width: var(--dropdown-width);
+	padding: .5rem 1rem;
+	border: 2px solid #fff;
+	border-radius: 5px;
+
+	background-color: var(--nav-bg-color);
+	font-size: 1.1rem;
+	transition: .3s transform;
+	transform: translateY(-500px);
+}
+
+.nav-dropdown-top {
+	position: relative;
+	display: flex;
+	padding: .5rem 1rem .5rem .2rem;
+
+	background-color: grey;
+}
+.nav-dropdown-top::after { 
+	content: '';
+	position: absolute;
+	top: 0;
+	right: calc(var(--triangle-width) * -1);
+	width: var(--triangle-width);
+	height: 100%;
+	display: inline-block;
+	clip-path: polygon(40% 50%, 0 0, 0 100%);
+	background-color: grey;
+} 
+.nav-dropdown-link {
+	display: block;
+	transition: .3s color;
+}
+.nav-dropdown-link:not(:first-child) {
+	margin-top: 1rem;
+}
+.nav-dropdown-link:hover {
+	color: #ddd;
+}
+.nav-dropdown-bottom {
+	margin-top: 1rem;
+}
+
+/* Dropdown Style ends */
