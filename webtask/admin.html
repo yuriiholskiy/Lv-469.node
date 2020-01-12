@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>News</title>
+	<title>Admin</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/pages/news.css">
+	<link rel="stylesheet" href="./css/pages/admin.css">
 </head>
 <body>
 	<header class="header">
@@ -34,7 +34,7 @@
 					</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="#" class="nav-list-link active">news</a>
+					<a href="news.html" class="nav-list-link">news</a>
 				</li>
 				<li class="nav-list-item">
 					<a href="#fans" class="nav-list-link">fans</a>
@@ -43,7 +43,7 @@
 					<a href="#contacts" class="nav-list-link">contacts</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="admin.html" class="nav-list-link">admin</a>
+					<a href="admin.html" class="nav-list-link active">admin</a>
 				</li>
 			</ul>
 			<picture class="logo anim-trX-opposite-middle">
@@ -55,54 +55,34 @@
 		</nav>
 	</header>
 	<main>
-		<h2 class="main-head text-center mt-2 anim-trY-opposite-middle">The last news</h2>
+		<h2 class="main-head text-center mt-2 anim-trY-opposite-middle">Add news</h2>
 		<div class="container">
-			<div class="row justify-center mt-2 mb-2 news-cards">
-				<article class="col col-3 col-md-6 col-sm-11">
-					<figure class="card anim-trY-slow">
-						<img src="./images/news-image.png" alt="Table tennis last news">
-						<figcaption class="card-caption text-center mt-1">
-							<h3 class="card-title">Title</h3>
-							<p class="card-content">
-								Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-							</p>
-						</figcaption>
-					</figure>
-				</article>
-				<article class="col col-3 col-md-6 col-sm-11">
-					<figure class="card anim-trY-slow">
-						<img src="./images/news-image.png" alt="Table tennis last news">
-						<figcaption class="card-caption text-center mt-1">
-							<h3 class="card-title">Title</h3>
-							<p class="card-content">
-								Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-							</p>
-						</figcaption>
-					</figure>
-				</article>
-				<article class="col col-3 col-md-6 col-sm-11">
-					<figure class="card anim-trY-slow">
-						<img src="./images/news-image.png" alt="Table tennis last news">
-						<figcaption class="card-caption text-center mt-1">
-							<h3 class="card-title">Title</h3>
-							<p class="card-content">
-								Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-							</p>
-						</figcaption>
-					</figure>
-				</article>
-				<article class="col col-3 col-md-6 col-sm-11">
-					<figure class="card anim-trY-slow">
-						<img src="./images/news-image.png" alt="Table tennis last news">
-						<figcaption class="card-caption text-center mt-1">
-							<h3 class="card-title">Title</h3>
-							<p class="card-content">
-								Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
-							</p>
-						</figcaption>
-					</figure>
-				</article>
+			<div class="row mt-2">
+				<div class="col col-8 col-sm-12">
+					<img class="anim-trY-opposite-middle" src="./images/news-image.png" alt="Add new image">
+				</div>
+				<div class="col col-4 col-sm-12 align-self-end text-center">
+					<button class="button button-primary anim-trY-middle">Add image</button>
+				</div>
 			</div>
+			<form class="row mt-2 form">
+				<div class="col col-8 col-sm-12 flex-column">
+					<input type="text" 
+								 name="news-title" 
+								 class="form-text-input" 
+								 placeholder="News title"
+								 required>
+					<textarea name="news-text"
+										cols="30" 
+										rows="10" 
+										placeholder="News text" 
+										class="form-text-input mt-1"
+										required></textarea>
+				</div>
+				<div class="col col-4 col-sm-12 align-self-end text-center">
+					<input class="button button-primary" type="submit" value="Add news">
+				</div>
+			</form>
 		</div>
 	</main>
 	<footer class="footer text-center flex-around">

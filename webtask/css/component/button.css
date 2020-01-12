@@ -1,0 +1,33 @@
+.button {
+	border: none;
+	border-radius: 5px;
+	padding: .5rem 1rem;
+	font-size: 1.1rem;
+	background-color: transparent;
+	color: #fff;
+	cursor: pointer;
+	transition: .3s transform;
+}
+.button:hover {
+	transform: translateY(5px);
+}
+
+.button-primary {
+	background-color: var(--primary-color);
+}
+.button-success {
+	background-color: var(--success-color);
+}
+.button-warning {
+	background-color: var(--warning-color);
+}
+.button-danger {
+	background-color: var(--danger-color);
+}
+.button-dark {
+	background-color: var(--dark-color);
+}
+.button-light {
+	background-color: var(--light-color);
+	color: var(--dark-color);
+}

@@ -2,6 +2,9 @@
 @import url('./helper-classes.css');
 @import url('./animation.css');
 @import url('./grid.css');
+
+@import url('./component/button.css');
+
 @import url('./blocks/header.css');
 @import url('./blocks/main.css');
 @import url('./blocks/footer.css');

@@ -1,0 +1,14 @@
+.form {
+	margin-top: 4rem;
+}
+
+.form-text-input {
+	display: block;
+	width: 100%;
+	padding: .5rem;
+	border-radius: 5px;
+	border: 1px solid var(--light-color);
+}
+.form-text-input:valid {
+	border: 1px solid var(--success-color);
+}

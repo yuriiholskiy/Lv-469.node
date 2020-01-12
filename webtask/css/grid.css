@@ -35,6 +35,12 @@
 	margin-left: var(--grid-gap-one-side);
 	margin-right: var(--grid-gap-one-side);
 }
+.col.align-self-start {
+	align-self: flex-end;
+}
+.col.align-self-end {
+	align-self: flex-end;
+}
 
 .col-1 {
 	width: calc( (100% / var(--cols)) * 1 - var(--grid-gap));
@@ -73,6 +79,164 @@
 	width: calc( (100% / var(--cols)) * 12 - var(--grid-gap));
 }
 
+@media screen and (max-width: 992px) {
+	.col-lg-1 {
+		width: calc( (100% / var(--cols)) * 1 - var(--grid-gap));
+	}
+	.col-lg-2 {
+		width: calc( (100% / var(--cols)) * 2 - var(--grid-gap));
+	}
+	.col-lg-3 {
+		width: calc( (100% / var(--cols)) * 3 - var(--grid-gap));
+	}
+	.col-lg-4 {
+		width: calc( (100% / var(--cols)) * 4 - var(--grid-gap));
+	}
+	.col-lg-5 {
+		width: calc( (100% / var(--cols)) * 5 - var(--grid-gap));
+	}
+	.col-lg-6 {
+		width: calc( (100% / var(--cols)) * 6 - var(--grid-gap));
+	}
+	.col-lg-7 {
+		width: calc( (100% / var(--cols)) * 7 - var(--grid-gap));
+	}
+	.col-lg-8 {
+		width: calc( (100% / var(--cols)) * 8 - var(--grid-gap));
+	}
+	.col-lg-9 {
+		width: calc( (100% / var(--cols)) * 9 - var(--grid-gap));
+	}
+	.col-lg-10 {
+		width: calc( (100% / var(--cols)) * 10 - var(--grid-gap));
+	}
+	.col-lg-11 {
+		width: calc( (100% / var(--cols)) * 11 - var(--grid-gap));
+	}
+	.col-lg-12 {
+		width: calc( (100% / var(--cols)) * 12 - var(--grid-gap));
+	}
+}
+@media screen and (max-width: 760px) {
+	.col:nth-child(n + 3) {
+		margin-top: 1rem;
+	}
+	.col-md-1 {
+		width: calc( (100% / var(--cols)) * 1 - var(--grid-gap));
+	}
+	.col-md-2 {
+		width: calc( (100% / var(--cols)) * 2 - var(--grid-gap));
+	}
+	.col-md-3 {
+		width: calc( (100% / var(--cols)) * 3 - var(--grid-gap));
+	}
+	.col-md-4 {
+		width: calc( (100% / var(--cols)) * 4 - var(--grid-gap));
+	}
+	.col-md-5 {
+		width: calc( (100% / var(--cols)) * 5 - var(--grid-gap));
+	}
+	.col-md-6 {
+		width: calc( (100% / var(--cols)) * 6 - var(--grid-gap));
+	}
+	.col-md-7 {
+		width: calc( (100% / var(--cols)) * 7 - var(--grid-gap));
+	}
+	.col-md-8 {
+		width: calc( (100% / var(--cols)) * 8 - var(--grid-gap));
+	}
+	.col-md-9 {
+		width: calc( (100% / var(--cols)) * 9 - var(--grid-gap));
+	}
+	.col-md-10 {
+		width: calc( (100% / var(--cols)) * 10 - var(--grid-gap));
+	}
+	.col-md-11 {
+		width: calc( (100% / var(--cols)) * 11 - var(--grid-gap));
+	}
+	.col-md-12 {
+		width: calc( (100% / var(--cols)) * 12 - var(--grid-gap));
+	}
+}
+@media screen and (max-width: 540px) {
+	.col:not(:first-child) {
+		margin-top: 1rem;
+	}
+	.col-sm-1 {
+		width: calc( (100% / var(--cols)) * 1 - var(--grid-gap));
+	}
+	.col-sm-2 {
+		width: calc( (100% / var(--cols)) * 2 - var(--grid-gap));
+	}
+	.col-sm-3 {
+		width: calc( (100% / var(--cols)) * 3 - var(--grid-gap));
+	}
+	.col-sm-4 {
+		width: calc( (100% / var(--cols)) * 4 - var(--grid-gap));
+	}
+	.col-sm-5 {
+		width: calc( (100% / var(--cols)) * 5 - var(--grid-gap));
+	}
+	.col-sm-6 {
+		width: calc( (100% / var(--cols)) * 6 - var(--grid-gap));
+	}
+	.col-sm-7 {
+		width: calc( (100% / var(--cols)) * 7 - var(--grid-gap));
+	}
+	.col-sm-8 {
+		width: calc( (100% / var(--cols)) * 8 - var(--grid-gap));
+	}
+	.col-sm-9 {
+		width: calc( (100% / var(--cols)) * 9 - var(--grid-gap));
+	}
+	.col-sm-10 {
+		width: calc( (100% / var(--cols)) * 10 - var(--grid-gap));
+	}
+	.col-sm-11 {
+		width: calc( (100% / var(--cols)) * 11 - var(--grid-gap));
+	}
+	.col-sm-12 {
+		width: calc( (100% / var(--cols)) * 12 - var(--grid-gap));
+	}
+}
+@media screen and (max-width: 420px) {
+	.col-xs-1 {
+		width: calc( (100% / var(--cols)) * 1 - var(--grid-gap));
+	}
+	.col-xs-2 {
+		width: calc( (100% / var(--cols)) * 2 - var(--grid-gap));
+	}
+	.col-xs-3 {
+		width: calc( (100% / var(--cols)) * 3 - var(--grid-gap));
+	}
+	.col-xs-4 {
+		width: calc( (100% / var(--cols)) * 4 - var(--grid-gap));
+	}
+	.col-xs-5 {
+		width: calc( (100% / var(--cols)) * 5 - var(--grid-gap));
+	}
+	.col-xs-6 {
+		width: calc( (100% / var(--cols)) * 6 - var(--grid-gap));
+	}
+	.col-xs-7 {
+		width: calc( (100% / var(--cols)) * 7 - var(--grid-gap));
+	}
+	.col-xs-8 {
+		width: calc( (100% / var(--cols)) * 8 - var(--grid-gap));
+	}
+	.col-xs-9 {
+		width: calc( (100% / var(--cols)) * 9 - var(--grid-gap));
+	}
+	.col-xs-10 {
+		width: calc( (100% / var(--cols)) * 10 - var(--grid-gap));
+	}
+	.col-xs-11 {
+		width: calc( (100% / var(--cols)) * 11 - var(--grid-gap));
+	}
+	.col-xs-12 {
+		width: calc( (100% / var(--cols)) * 12 - var(--grid-gap));
+	}
+}
 
 
 /* Grid Styles Ends */

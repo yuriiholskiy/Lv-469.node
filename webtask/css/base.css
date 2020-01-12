@@ -10,6 +10,13 @@
 	--heading-color: rgba(0, 0, 0, .7);
 	--triangle-width: 30px;
 	--dropdown-width: 150px;
+
+	--primary-color: #79A9D1;
+	--success-color: #69D15E;
+	--warning-color: #E2C044;
+	--danger-color: #7B0D1E;
+	--dark-color: #211103;
+	--light-color: #FAF5F3;
 } 
 
 html {
@@ -36,6 +43,10 @@ body {
 	background-color: var(--body-bg-color);
 	font-family: 'PT serif', serif;
 	padding-bottom: 8rem;
+	transition: .3s margin-left;
+}
+body.active {
+	margin-left: 300px;
 }
 figure {
 	margin: 0;
@@ -63,7 +74,9 @@ a.link {
 	text-decoration: underline;
 }
 a,
-button {
+button,
+input,
+textarea {
 	font-family: inherit;
 }
 p {
