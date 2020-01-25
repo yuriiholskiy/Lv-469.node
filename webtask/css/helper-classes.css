@@ -5,6 +5,12 @@
 .text-center {
 	text-align: center;
 }
+.d-block {
+	display: block;
+}
+.d-flex {
+	display: flex;
+}
 .flex-around {
 	display: flex;
 	justify-content: space-around;
@@ -76,6 +82,14 @@
 }
 .pb-2 {
 	padding-bottom: 2rem;
+}
+
+.border-rds-1 {
+	border-radius: .5rem;
+}
+
+.color-black {
+	color: #000;
 }
 
 /*  helpers classes  */

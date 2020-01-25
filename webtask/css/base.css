@@ -1,5 +1,5 @@
  /*Base Styles + variables */
- 
+
 :root {
 	--base-font: 10px;
 	--cols: 12;
@@ -17,7 +17,7 @@
 	--danger-color: #7B0D1E;
 	--dark-color: #211103;
 	--light-color: #FAF5F3;
-} 
+}
 
 html {
 	position: relative;
@@ -42,7 +42,7 @@ body {
 	min-height: 100vh;
 	background-color: var(--body-bg-color);
 	font-family: 'PT serif', serif;
-	padding-bottom: 8rem;
+  padding-bottom: 8rem;
 	transition: .3s margin-left;
 }
 body.active {
@@ -58,7 +58,7 @@ img {
 }
 ul {
 	list-style-type: none;
-	margin: 0;	 
+	margin: 0;
 	padding: 0;
 }
 ol {
@@ -88,6 +88,7 @@ h3,
 h4,
 h5,
 h6 {
+	margin-top: 0;
 	margin-bottom: 0;
 	color: var(--heading-color);
 }
@@ -99,4 +100,9 @@ h6 {
 .main {
 	padding-bottom: 8rem;
 }
-/* Base Styles + variables 
+@media screen and (max-width: 600px) {
+	body {
+		padding-bottom: 6rem;
+	}
+}
+/* Base Styles + variables

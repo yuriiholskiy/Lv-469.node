@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Admin</title>
+	<title>Contacts</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/pages/admin.css">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" href="./css/pages/contacts.css">
 </head>
 <body>
 	<header class="header">
@@ -40,10 +41,10 @@
 					<a href="fans.html" class="nav-list-link">fans</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="contacts.html" class="nav-list-link">contacts</a>
+					<a href="#contacts" class="nav-list-link active">contacts</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="admin.html" class="nav-list-link active">admin</a>
+					<a href="admin.html" class="nav-list-link">admin</a>
 				</li>
 			</ul>
 			<picture class="logo anim-trX-opposite-middle">
@@ -55,34 +56,21 @@
 		</nav>
 	</header>
 	<main>
-		<h2 class="main-head text-center mt-2 anim-trY-opposite-middle">Add news</h2>
 		<div class="container">
-			<div class="row mt-2">
-				<div class="col col-8 col-sm-12">
-					<img class="anim-trY-opposite-middle" src="./images/news-image.png" alt="Add new image">
+      <div class="row justify-space-between mt-2">
+        <div class="col col-4 col-lg-5  col-sm-12">
+          <div class="card anim-trY-opposite-middle">
+            <h3 class="card-title text-center">Contacts</h3>
+            <div class="card-content">
+              <p>Name: Yurii</p>
+              <p>Phone: +380938649871</p>
+              <p>Email: yurii.golskyi@gmail.com</p>
+            </div>
+          </div>
 				</div>
-				<div class="col col-4 col-sm-12 align-self-end text-center">
-					<button class="button button-primary anim-trY-middle">Add image</button>
+				<div id="map" class="col col-8 col-lg-7 col-sm-12 anim-trY-middle" style="height: 32rem;">
 				</div>
-			</div>
-			<form class="row mt-2 form">
-				<div class="col col-8 col-sm-12 flex-column">
-					<input type="text"
-								 name="news-title"
-								 class="form-text-input"
-								 placeholder="News title"
-								 required>
-					<textarea name="news-content"
-										cols="30"
-										rows="10"
-										placeholder="News Content"
-										class="form-text-input mt-1"
-										required></textarea>
-				</div>
-				<div class="col col-4 col-sm-12 align-self-end text-center">
-					<input class="button button-primary" type="submit" value="Add news">
-				</div>
-			</form>
+      </div>
 		</div>
 	</main>
 	<footer class="footer text-center flex-around">
@@ -96,7 +84,8 @@
 			</a>
 		</picture>
 	</footer>
-	<script src="./js/mobile-menu.js"></script>
-	<script src="./js/index.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+  <script src="./js/mobile-menu.js"></script>
+	<script src="./js/map.js"></script>
 </body>
 </html>

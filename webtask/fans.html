@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fans</title>
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/pages/fans.css">
+</head>
+<body>
+	<header class="header">
+		<nav class="navigation flex-between">
+			<button class="button button-warning nav-mobile-button anim-trX-middle">
+				<span class="nav-mobile-line"></span>
+			</button>
+			<ul class="nav-list anim-trX-middle">
+				<li class="nav-list-item">
+					<a href="index.html" class="nav-list-link">main</a>
+				</li>
+				<li class="nav-list-item">
+					<ul class="nav-dropdown" id="matches">
+						<li class="nav-dropdown-top">
+							<a href="#" class="nav-dropdown-link">
+								To top
+							</a>
+						</li>
+						<li class="nav-dropdown-bottom">
+							<a href="#" class="nav-dropdown-link">Something else</a>
+							<a href="#" class="nav-dropdown-link">Something else</a>
+						</li>
+					</ul>
+					<a href="#matches" class="nav-list-link nav-dropdown-active">
+						<span class="nav-list-dropdown">matches</span>
+					</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="news.html" class="nav-list-link">news</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="fans.html" class="nav-list-link active">fans</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="contacts.html" class="nav-list-link">contacts</a>
+				</li>
+				<li class="nav-list-item">
+					<a href="admin.html" class="nav-list-link">admin</a>
+				</li>
+			</ul>
+			<picture class="logo anim-trX-opposite-middle">
+				<source srcset="./images/logo.svg" type="image/svg+xml">
+				<a href="#">
+					<img src="./images/logo.png" alt="Table tennis" class="logo-img">
+				</a>
+			</picture>
+		</nav>
+	</header>
+	<main>
+		<h2 class="main-head text-center mt-2 anim-trY-opposite-middle">Appeal of fans</h2>
+		<div class="container">
+			<div class="comment mt-2 pb-1 anim-trX-middle">
+        <p class="comment-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+        </p>
+        <div class="comment-footer flex-between mt-1">
+          <time class="d-block comment-data">25.01.2020, 17:45</time>
+          <span class="comment-author">Goose</span>
+        </div>
+      </div>
+      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
+        <p class="comment-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="comment-footer flex-between mt-1">
+          <time class="d-block comment-data">25.01.2020, 17:50</time>
+          <span class="comment-author">Duck</span>
+        </div>
+      </div>
+      <div class="comment mt-2 pb-1 anim-trX-middle">
+        <p class="comment-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="comment-footer flex-between mt-1">
+          <time class="d-block comment-data">25.01.2020, 17:50</time>
+          <span class="comment-author">Wolf</span>
+        </div>
+      </div>
+      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
+        <p class="comment-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="comment-footer flex-between mt-1">
+          <time class="d-block comment-data">26.01.2020, 11:12</time>
+          <span class="comment-author">Bear</span>
+        </div>
+      </div>
+      <div class="comment mt-2 pb-1 anim-trX-middle">
+        <p class="comment-content">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <div class="comment-footer flex-between mt-1">
+          <time class="d-block comment-data">28.01.2020, 14:32</time>
+          <span class="comment-author">Deer</span>
+        </div>
+      </div>
+      <form class="row justify-center mt-2 form anim-trY-fast">
+        <div class="col col-7 col-sm-12">
+          <textarea name="news-content"
+                    cols="30"
+                    rows="10"
+                    placeholder="Write an appeal"
+                    class="form-text-input mt-1"
+                    required></textarea>
+        </div>
+        <div class="col col-1 col-sm-12 align-self-end text-center">
+          <input class="button button-primary" type="submit" value="Send">
+        </div>
+      </form>
+		</div>
+
+	</main>
+	<footer class="footer text-center flex-around">
+		<p class="footer-paragraph">
+			Created by Yurii Holskyi, all rights reserved &copy;
+		</p>
+		<picture class="logo">
+			<source srcset="./images/logo.svg" type="image/svg+xml">
+			<a href="#">
+				<img src="./images/logo.png" alt="Table tennis" class="logo-img">
+			</a>
+		</picture>
+	</footer>
+	<script src="./js/mobile-menu.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>

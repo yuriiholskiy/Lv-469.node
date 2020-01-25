@@ -1,20 +1,62 @@
-(() => {
-	const menu = document.querySelector('.nav-list');
-	const mobileMenuToggleButton = document.querySelector('.nav-mobile-button');
-	const styles = window.getComputedStyle(mobileMenuToggleButton);
+const uuid = () => '_' + Math.random().toString(16).slice(2);
+const setToStorage = (key, val) => window.localStorage.setItem(key, JSON.stringify(val));
+const getFromStorage = (key) => JSON.parse(window.localStorage.getItem(key));
 
-	if(styles.display !== 'none') {
-		menu.classList.remove('anim-trX-middle');
-	}
+let state = {
+	title: '',
+	content: '',
+	news: getFromStorage('news') || [
+		{
+			id: uuid(),
+			title: 'Tennis',
+			content: 'Lorem ipsum dollum dolorem eim sunt, iste. Quideipisci ipsam laudantium necessitatibus eveniet.'
+		},
+		{
+			id: uuid(),
+			title: 'Tennis 2 ',
+			content: 'Lorem ipsum dolor sit amet, consecteesci ipsam laudantium necessitatibus eveniet.'
+		},
+		{
+			id: uuid(),
+			title: 'Tennis 3',
+			content: 'Lorem ipsum dolor sit amet, consectetur menda quia dolor, aliquam voluptatem numquam adipisci ipsam laudantium necessitatibus eveniet.'
+		},
+	]
+};
+function setState(newState) {
+	state = {...state, ...newState};
+	return state;
+};
 
-	function toggleMobileMenu() {
-		menu.classList.toggle('active');
-	}
+const form = document.querySelector('.form');
+function inputsUpdate() {
+	form['news-title'].value = state.title;
+	form['news-content'].value = state.content;
+}
+if(form) {
+	form.addEventListener('submit', (event) => {
+		event.preventDefault();
 
-	mobileMenuToggleButton.addEventListener('click', toggleMobileMenu);
-	document.addEventListener('click', (event) => {
-		if(event.target.classList.contains('nav-list')) {
-			toggleMobileMenu();
-		} 
+		setState({
+			title: form['news-title'].value,
+			content: form['news-content'].value
+		});
+		inputsUpdate();
+		const newNews = {
+			id: uuid(),
+			title: state.title,
+			content: state.content
+		};
+		const newState = {
+			title: '',
+			content: '',
+			news: [...state.news, newNews]
+		};
+		setState(newState);
+		setToStorage('news', state.news);
+		inputsUpdate();
+		window.setTimeout(() => {
+			window.location.assign('news.html');
+		}, 500);
 	});
-})();
+}
