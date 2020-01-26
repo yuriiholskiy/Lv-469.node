@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Admin</title>
+	<title>Matches</title>
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/pages/admin.css">
+	<link rel="stylesheet" href="./css/pages/matches.css">
 </head>
 <body>
 	<header class="header">
@@ -29,7 +29,7 @@
 							<a href="#" class="nav-dropdown-link">Close</a>
 						</li>
 					</ul>
-					<a href="#matches" class="nav-list-link nav-dropdown-active">
+					<a href="#matches" class="nav-list-link nav-dropdown-active active">
 						<span class="nav-list-dropdown">matches</span>
 					</a>
 				</li>
@@ -43,7 +43,7 @@
 					<a href="contacts.html" class="nav-list-link">contacts</a>
 				</li>
 				<li class="nav-list-item">
-					<a href="admin.html" class="nav-list-link active">admin</a>
+					<a href="admin.html" class="nav-list-link">admin</a>
 				</li>
 			</ul>
 			<picture class="logo anim-trX-opposite-middle">
@@ -55,34 +55,63 @@
 		</nav>
 	</header>
 	<main>
-		<h2 class="text-center mt-2 anim-trY-opposite-middle">Add news</h2>
-		<div class="container">
-			<div class="row mt-2">
-				<div class="col col-8 col-sm-12">
-					<img class="anim-trY-opposite-middle" src="./images/news-image.png" alt="Add new image">
-				</div>
-				<div class="col col-4 col-sm-12 align-self-end text-center">
-					<button class="button button-primary anim-trY-middle">Add image</button>
-				</div>
+		<h2 class="text-center mt-4 anim-trY-opposite-middle">
+			Annual calendar of matches
+		</h2>
+		<div class="container mt-1">
+			<div class="overflow-x-auto">
+				<table class="table table-with-border table-striped anim-trY-middle">
+					<thead>
+						<tr>
+							<th>Date of the match</th>
+							<th>Venue</th>
+							<th>Opponent/Tournament</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Match in Canada</td>
+							<td>Mathes in Hungary</td>
+							<td>Match in Ukraine</td>
+						</tr>
+						<tr>
+							<td>Match in USA</td>
+							<td>Mathes in UK Kingdom</td>
+							<td>Match in Ukraine</td>
+						</tr>
+						<tr>
+							<td>Match in China</td>
+							<td>Mathes in Japan</td>
+							<td>Match in India</td>
+						</tr>
+						<tr>
+							<td>Match in Ukraine</td>
+							<td>Mathes in Poland</td>
+							<td>Match in USA</td>
+						</tr>
+						<tr>
+							<td>Match in USA</td>
+							<td>Mathes in UK Kingdom</td>
+							<td>Match in Ukraine</td>
+						</tr>
+						<tr>
+							<td>Match in Canada</td>
+							<td>Mathes in Hungary</td>
+							<td>Match in Ukraine</td>
+						</tr>
+						<tr>
+							<td>Match in China</td>
+							<td>Mathes in Japan</td>
+							<td>Match in India</td>
+						</tr>
+						<tr>
+							<td>Match in Ukraine</td>
+							<td>Mathes in Poland</td>
+							<td>Match in USA</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-			<form class="row mt-2 form">
-				<div class="col col-8 col-sm-12 flex-column">
-					<input type="text"
-								 name="news-title"
-								 class="form-text-input"
-								 placeholder="News title"
-								 required>
-					<textarea name="news-content"
-										cols="30"
-										rows="10"
-										placeholder="News Content"
-										class="form-text-input mt-1"
-										required></textarea>
-				</div>
-				<div class="col col-4 col-sm-12 align-self-end text-center">
-					<input class="button button-primary" type="submit" value="Add news">
-				</div>
-			</form>
 		</div>
 	</main>
 	<footer class="footer text-center flex-around">
@@ -97,6 +126,5 @@
 		</picture>
 	</footer>
 	<script src="./js/mobile-menu.js"></script>
-	<script src="./js/index.js"></script>
 </body>
 </html>

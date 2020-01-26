@@ -109,8 +109,9 @@
 
 .nav-dropdown {
 	position: absolute;
-	top: 90%;
 	left: 10px;
+	top: 100%;
+	z-index: 999;
 	width: var(--dropdown-width);
 	padding: .5rem 1rem;
 	border: 2px solid #fff;
@@ -211,8 +212,7 @@
 	}
 
 	.nav-dropdown {
-		top: 50%;
-		left: 100px;
+		left: 0;
 	}
 }
 /* Adaptive Navbar Style ends */

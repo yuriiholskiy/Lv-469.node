@@ -1,0 +1,38 @@
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+  border-collapse: collapse;
+  border-spacing: 0;
+  white-space: nowrap;
+  text-align: left;
+}
+.table caption {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.table th,
+.table td {
+  padding: .75rem .25rem;
+}
+
+.table-with-border {
+   border: 1px solid var(--table-head-color);
+}
+
+.table-with-border th,
+.table-with-border td {
+  border: 1px solid var(--table-head-color);
+}
+
+.table-striped tbody tr:nth-child(2n) {
+  background-color: var(--nav-bg-color);
+  color: var(--light-color);
+}
+
+@media screen and (max-width: 500px) {
+  .table {
+    padding-right: 2rem;
+  }
+}

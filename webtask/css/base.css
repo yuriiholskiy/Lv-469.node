@@ -9,7 +9,7 @@
 	--body-bg-color: #ddd;
 	--heading-color: rgba(0, 0, 0, .7);
 	--triangle-width: 30px;
-	--dropdown-width: 150px;
+	--dropdown-width: 250px;
 
 	--primary-color: #79A9D1;
 	--success-color: #69D15E;
@@ -17,6 +17,8 @@
 	--danger-color: #7B0D1E;
 	--dark-color: #211103;
 	--light-color: #FAF5F3;
+
+	--table-head-color: #212529;
 }
 
 html {
