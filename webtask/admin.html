@@ -57,32 +57,51 @@
 	<main>
 		<h2 class="text-center mt-2 anim-trY-opposite-middle">Add news</h2>
 		<div class="container">
-			<div class="row mt-2">
+			<form class="row mt-2 form">
 				<div class="col col-8 col-sm-12">
-					<img class="anim-trY-opposite-middle" src="./images/news-image.png" alt="Add new image">
+					<img class="image-preview anim-trY-opposite-middle"
+							 src="https://dummyimage.com/640x360/fff/aaa">
 				</div>
 				<div class="col col-4 col-sm-12 align-self-end text-center">
-					<button class="button button-primary anim-trY-middle">Add image</button>
+					<label class="choose-image button button-primary anim-trY-middle" for="file">Add image</label>
+					<input id="file"
+								 name="news-file"
+								 class="image-file"
+								 required
+								 type="file"
+								 accept="image/*"
+								 >
 				</div>
-			</div>
-			<form class="row mt-2 form">
-				<div class="col col-8 col-sm-12 flex-column">
+				<div class="col col-8 col-sm-12 flex-column mt-2">
 					<input type="text"
 								 name="news-title"
 								 class="form-text-input"
 								 placeholder="News title"
-								 required>
+								 minLength="10"
+								 required
+								 pattern="^[a-zA-Z0-9\S\p{IsCyrillic}]$"
+								 autocomplete="off"
+								 title="Please, type a title"
+								 >
 					<textarea name="news-content"
 										cols="30"
 										rows="10"
 										placeholder="News Content"
 										class="form-text-input mt-1"
-										required></textarea>
+										minLength="10"
+										required
+										pattern="^[a-zA-Z0-9\S\p{IsCyrillic}\S]$"
+										title="Please, type a content"
+										></textarea>
+					<p class="form-error-text">Not valid</p>
 				</div>
 				<div class="col col-4 col-sm-12 align-self-end text-center">
 					<input class="button button-primary" type="submit" value="Add news">
 				</div>
 			</form>
+		</div>
+		<div class="snackbar bottom">
+			Action successfully done 🎉
 		</div>
 	</main>
 	<footer class="footer text-center flex-around">
@@ -97,6 +116,8 @@
 		</picture>
 	</footer>
 	<script src="./js/mobile-menu.js"></script>
+	<script src="./js/utils.js"></script>
+	<script src="./js/theme-switcher.js"></script>
 	<script src="./js/index.js"></script>
 </body>
 </html>

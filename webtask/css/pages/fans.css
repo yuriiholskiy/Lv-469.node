@@ -7,6 +7,7 @@
 @import url('../component/card.css');
 @import url('../component/comment.css');
 @import url('../component/form.css');
+@import url('../component/snackbar.css');
 
 @import url('../blocks/header.css');
 @import url('../blocks/footer.css');

@@ -18,6 +18,9 @@
 					<a href="index.html" class="nav-list-link">main</a>
 				</li>
 				<li class="nav-list-item">
+					<a href="#matches" class="nav-list-link nav-dropdown-active">
+						<span class="nav-list-dropdown">matches</span>
+					</a>
 					<ul class="nav-dropdown" id="matches">
 						<li class="nav-dropdown-top">
 							<a href="matches.html" class="nav-dropdown-link">
@@ -29,9 +32,6 @@
 							<a href="#" class="nav-dropdown-link">Close</a>
 						</li>
 					</ul>
-					<a href="#matches" class="nav-list-link nav-dropdown-active">
-						<span class="nav-list-dropdown">matches</span>
-					</a>
 				</li>
 				<li class="nav-list-item">
 					<a href="news.html" class="nav-list-link">news</a>
@@ -57,83 +57,92 @@
 	<main>
 		<h2 class="text-center mt-2 anim-trY-opposite-middle">Appeal of fans</h2>
 		<div class="container">
-			<div class="comment mt-2 pb-1 anim-trX-middle">
-        <p class="comment-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-        </p>
-        <div class="comment-footer flex-between mt-1">
-          <time class="d-block comment-data">25.01.2020, 17:45</time>
-          <span class="comment-author">Goose</span>
-        </div>
-      </div>
-      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
-        <p class="comment-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <div class="comment-footer flex-between mt-1">
-          <time class="d-block comment-data">25.01.2020, 17:50</time>
-          <span class="comment-author">Duck</span>
-        </div>
-      </div>
-      <div class="comment mt-2 pb-1 anim-trX-middle">
-        <p class="comment-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <div class="comment-footer flex-between mt-1">
-          <time class="d-block comment-data">25.01.2020, 17:50</time>
-          <span class="comment-author">Wolf</span>
-        </div>
-      </div>
-      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
-        <p class="comment-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <div class="comment-footer flex-between mt-1">
-          <time class="d-block comment-data">26.01.2020, 11:12</time>
-          <span class="comment-author">Bear</span>
-        </div>
-      </div>
-      <div class="comment mt-2 pb-1 anim-trX-middle">
-        <p class="comment-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <div class="comment-footer flex-between mt-1">
-          <time class="d-block comment-data">28.01.2020, 14:32</time>
-          <span class="comment-author">Deer</span>
-        </div>
-      </div>
+			<div class="comment-wrap">
+				<!-- <div class="comment mt-2 pb-1 anim-trX-middle">
+	        <p class="comment-content">
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	        </p>
+	        <div class="comment-footer flex-between mt-1">
+	          <time class="d-block comment-data">25.01.2020, 17:45</time>
+	          <span class="comment-author">Goose</span>
+	        </div>
+	      </div>
+	      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
+	        <p class="comment-content">
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	        </p>
+	        <div class="comment-footer flex-between mt-1">
+	          <time class="d-block comment-data">25.01.2020, 17:50</time>
+	          <span class="comment-author">Duck</span>
+	        </div>
+	      </div>
+	      <div class="comment mt-2 pb-1 anim-trX-middle">
+	        <p class="comment-content">
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	        </p>
+	        <div class="comment-footer flex-between mt-1">
+	          <time class="d-block comment-data">25.01.2020, 17:50</time>
+	          <span class="comment-author">Wolf</span>
+	        </div>
+	      </div>
+	      <div class="comment mt-2 pb-1 anim-trX-opposite-middle">
+	        <p class="comment-content">
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	        </p>
+	        <div class="comment-footer flex-between mt-1">
+	          <time class="d-block comment-data">26.01.2020, 11:12</time>
+	          <span class="comment-author">Bear</span>
+	        </div>
+	      </div>
+	      <div class="comment mt-2 pb-1 anim-trX-middle">
+	        <p class="comment-content">
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	          Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
+	          non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
+	          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	        </p>
+	        <div class="comment-footer flex-between mt-1">
+	          <time class="d-block comment-data">28.01.2020, 14:32</time>
+	          <span class="comment-author">Deer</span>
+	        </div>
+	      </div> -->
+			</div>
       <form class="row justify-center mt-2 form anim-trY-fast">
         <div class="col col-7 col-sm-12">
-          <textarea name="news-content"
+          <textarea name="comment-content"
                     cols="30"
                     rows="10"
                     placeholder="Write an appeal"
                     class="form-text-input mt-1"
-                    required></textarea>
+                    minLength="10"
+                    required
+                    pattern="^[a-zA-Z0-9\p{IsCyrillic}]$"
+                    title="Please, type an appeal"
+                    ></textarea>
+					<p class="form-error-text">Not valid</p>
         </div>
         <div class="col col-1 col-sm-12 align-self-end text-center">
           <input class="button button-primary" type="submit" value="Send">
         </div>
       </form>
 		</div>
-
+		<div class="snackbar bottom">
+			Action successfully done 🎉
+		</div>
 	</main>
 	<footer class="footer text-center flex-around">
 		<p class="footer-paragraph">
@@ -147,5 +156,8 @@
 		</picture>
 	</footer>
 	<script src="./js/mobile-menu.js"></script>
+	<script src="./js/utils.js"></script>
+	<script src="./js/theme-switcher.js"></script>
+	<script src="./js/comment-render.js"></script>
 </body>
 </html>

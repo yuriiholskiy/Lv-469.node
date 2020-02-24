@@ -29,10 +29,11 @@
 .table-striped tbody tr:nth-child(2n) {
   background-color: var(--nav-bg-color);
   color: var(--light-color);
+  transition: .3s background-color;
 }
 
-@media screen and (max-width: 500px) {
-  .table {
-    padding-right: 2rem;
-  }
+.table-drop th::before {
+  content: '▼';
+  display: inline-block;
+  margin-right: .2rem;
 }

@@ -10,7 +10,9 @@
 .card:hover {
 	transform: scale(1.02);
 }
-
+.card img {
+	min-height: 200px;
+}
 .card-caption {
 	display: block;
 	border-top: 1px solid #fff;

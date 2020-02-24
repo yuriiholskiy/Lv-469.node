@@ -13,8 +13,8 @@ function mobileMenu() {
   }
 
   mobileMenuToggleButton.addEventListener('click', toggleMobileMenu);
-  document.addEventListener('click', (event) => {
-    if(event.target.classList.contains('nav-list')) {
+  document.addEventListener('click', ({target}) => {
+    if(target.classList.contains('nav-list')) {
       toggleMobileMenu();
     }
   });

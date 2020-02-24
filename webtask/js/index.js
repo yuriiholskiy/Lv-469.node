@@ -1,51 +1,64 @@
-const uuid = () => '_' + Math.random().toString(16).slice(2);
-const setToStorage = (key, val) => window.localStorage.setItem(key, JSON.stringify(val));
-const getFromStorage = (key) => JSON.parse(window.localStorage.getItem(key));
-
 let state = {
 	title: '',
 	content: '',
+	imageSrc: '',
 	news: getFromStorage('news') || [
 		{
 			id: uuid(),
 			title: 'Tennis',
-			content: 'Lorem ipsum dollum dolorem eim sunt, iste. Quideipisci ipsam laudantium necessitatibus eveniet.'
+			content: 'Lorem ipsum dollum dolorem eim sunt, iste. Quideipisci ipsam laudantium necessitatibus eveniet.',
+			imageSrc: './images/news-image.png',
 		},
 		{
 			id: uuid(),
 			title: 'Tennis 2 ',
-			content: 'Lorem ipsum dolor sit amet, consecteesci ipsam laudantium necessitatibus eveniet.'
+			content: 'Lorem ipsum dolor sit amet, consecteesci ipsam laudantium necessitatibus eveniet.',
+			imageSrc: './images/news-image.png',
 		},
 		{
 			id: uuid(),
 			title: 'Tennis 3',
-			content: 'Lorem ipsum dolor sit amet, consectetur menda quia dolor, aliquam voluptatem numquam adipisci ipsam laudantium necessitatibus eveniet.'
+			content: 'Lorem ipsum dolor sit amet, consectetur menda quia dolor, aliquam voluptatem numquam adipisci ipsam laudantium necessitatibus eveniet.',
+			imageSrc: './images/news-image.png',
 		},
 	]
 };
-function setState(newState) {
-	state = {...state, ...newState};
-	return state;
-};
 
+const chooseImage = document.querySelector('.image-file');
+const imagePreview = document.querySelector('.image-preview');
 const form = document.querySelector('.form');
-function inputsUpdate() {
-	form['news-title'].value = state.title;
-	form['news-content'].value = state.content;
-}
+const title = form['news-title'];
+const content = form['news-content'];
+
+chooseImage.addEventListener('change', (event) => {
+	const file = event.target.files[0];
+	if(!file) {
+		imagePreview.setAttribute('src', '');
+	}
+	const fileReader = new FileReader();
+	fileReader.onload = (event) => {
+		if(!event.target.result) return;
+		setState({
+			imageSrc: event.target.result
+		});
+		imagePreview.setAttribute('src', state.imageSrc);
+	}
+	fileReader.readAsDataURL(file);
+});
+
 if(form) {
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
-
+		if(!title.checkValidity() || !content.checkValidity()) return;
 		setState({
-			title: form['news-title'].value,
-			content: form['news-content'].value
+			title: title.value,
+			content: content.value
 		});
-		inputsUpdate();
 		const newNews = {
 			id: uuid(),
 			title: state.title,
-			content: state.content
+			content: state.content,
+			imageSrc: state.imageSrc
 		};
 		const newState = {
 			title: '',
@@ -53,10 +66,19 @@ if(form) {
 			news: [...state.news, newNews]
 		};
 		setState(newState);
-		setToStorage('news', state.news);
-		inputsUpdate();
-		window.setTimeout(() => {
-			window.location.assign('news.html');
-		}, 500);
+		if(isOnline()) {
+			setToStorage('news', state.news);
+		} else {
+			window.setTimeout(() => {
+				setToStorage('news', state.news);
+			}, 500);
+		}
+		snackbar.setText('Article added. 🧨🧨✨✨');
+		snackbar.show();
+		snackbar.hide(2500);
+		form.reset();
+		// window.setTimeout(() => {
+		// 	window.location.assign('news.html');
+		// }, 500);
 	});
 }

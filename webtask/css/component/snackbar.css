@@ -1,0 +1,21 @@
+.snackbar {
+  position: fixed;
+  left: 50%;
+  margin-left: calc((var(--snackbar-width) / 2) * -1);
+  z-index: 9999;
+  width: var(--snackbar-width);
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  transition: .3s transform ease-in-out;
+  transform: scale(0);
+}
+.snackbar.top {
+  top: 1rem;
+}
+.snackbar.bottom {
+  bottom: 1rem;
+}
+.snackbar.active {
+  transform: scale(1);
+}

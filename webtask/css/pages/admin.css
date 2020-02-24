@@ -5,6 +5,7 @@
 
 @import url('../component/button.css');
 @import url('../component/form.css');
+@import url('../component/snackbar.css');
 
 @import url('../blocks/header.css');
 @import url('../blocks/footer.css');

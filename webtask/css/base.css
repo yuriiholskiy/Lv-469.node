@@ -1,16 +1,6 @@
  /*Base Styles + variables */
 
 :root {
-	--base-font: 10px;
-	--cols: 12;
-	--grid-gap: calc(var(--base-font) * 2);
-	--grid-gap-one-side: calc(var(--grid-gap) / 2);
-	--nav-bg-color: #6c757d;
-	--body-bg-color: #ddd;
-	--heading-color: rgba(0, 0, 0, .7);
-	--triangle-width: 30px;
-	--dropdown-width: 250px;
-
 	--primary-color: #79A9D1;
 	--success-color: #69D15E;
 	--warning-color: #E2C044;
@@ -18,7 +8,32 @@
 	--dark-color: #211103;
 	--light-color: #FAF5F3;
 
+	--base-font: 10px;
+	--cols: 12;
+	--grid-gap: calc(var(--base-font) * 2);
+	--grid-gap-one-side: calc(var(--grid-gap) / 2);
+	--nav-bg-color: #6c757d;
+	--body-bg-color: #ddd;
+	--nav-color: var(--dark-color);
+	--heading-color: rgba(0, 0, 0, .7);
+	--triangle-width: 30px;
+	--dropdown-width: 250px;
+
+	--snackbar-width: 250px;
+
 	--table-head-color: #212529;
+}
+@media screen and (max-width: 700px) {
+	:root {
+		--dropdown-width: 150px;
+	}
+}
+
+.theme-dark {
+	--nav-bg-color: var(--dark-color);
+	--heading-color: var(--dark-color);
+	--table-head-color: var(--dark-color);
+	--nav-color: var(--warning-color);
 }
 
 html {
@@ -41,14 +56,11 @@ body {
 }
 
 body {
+	position: relative;
 	min-height: 100vh;
 	background-color: var(--body-bg-color);
 	font-family: 'PT serif', serif;
   padding-bottom: 8rem;
-	transition: .3s margin-left;
-}
-body.active {
-	margin-left: 300px;
 }
 figure {
 	margin: 0;

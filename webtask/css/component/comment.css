@@ -1,4 +1,5 @@
 .comment {
+  position: relative;
   width: 100%;
   max-width: 40rem;
   margin-left: auto;
@@ -7,13 +8,21 @@
 }
 
 .comment-content {
-
+  margin-right: 2rem;
 }
-
+.comment-del-button {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
 .comment-footer {
 }
 
 .comment-author {
-  font-size: 1.4rem;
+  font-size: .9rem;
+  font-style: italic;
   font-weight: 500;
 }
