@@ -1,35 +1,6 @@
-const initialComments = [
-  {
-    id: uuid(),
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-              non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-              non reiciendis aut nihil dicta animi ab aspernatur nemo iste.`,
-    author: 'Who?',
-    date: '2/4/2020, 10:22:45 AM',
-  },
-  {
-    id: uuid(),
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-              non reiciendis aut nihil dicta animi ab aspernatur nemo iste.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              `,
-    author: 'Who?',
-    date: '2/5/2020, 10:40:45 AM',
-  },
-  {
-    id: uuid(),
-    content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Nam tempora atque ut placeat quia neque harum, consectetur cupiditate dolor repellendus
-              non reiciendis aut nihil dicta animi ab aspernatur nemo iste.`,
-    author: 'Who?',
-    date: '2/6/2020, 10:30:45 AM',
-  }
-];
-
+const initialComments = [];
+const commentStore = 'comments';
+let commentsDB = null; 
 let state = {
   content: '',
   comments: getFromStorage('comments') || initialComments
@@ -58,13 +29,38 @@ form.addEventListener('submit', (event) => {
 
   setState(newState);
   if(isOnline()) {
-    setToStorage('comments', state.comments);
-    renderComments();
+    if(useLocalStorage) {
+      // setToStorage('comments', state.comments);
+    } else {
+      console.log('[Data go to indexedDB]');
+    }
+    renderComments(state.comments);
   } else {
-    window.setTimeout(() => {
+    if(useLocalStorage) {
       setToStorage('comments', state.comments);
-      renderComments();
-    }, 500);
+    } else {
+      commentsDB = new IndexedDB({
+        DBName: 'comments',
+        DBVersion: 1,
+        store: commentStore,
+        onUpgrageNeeded: (event) => {
+          const db = event.target.result;
+          let data = db.createObjectStore(commentStore, {autoIncrement: true});
+        },
+        onSuccess: (event) => {
+          const db = event.target.result;
+          commentsDB.addOneDocument(newComment);
+          commentsDB.getAndDisplayData((data) => {
+            setState({
+              comments: data
+            });
+          });
+        },
+        onError: (event) => {
+          console.log('error opening database ' + event.target.errorCode);
+        }
+      });
+    }
   }
   snackbar.setText('Comment added. 🧨🧨✨✨');
   snackbar.show();
@@ -72,10 +68,10 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-renderComments();
-function renderComments() {
+// renderComments();
+function renderComments(data) {
   commentsCardRow.innerHTML = '';
-  state.comments.forEach(({id, content, author, date}) => {
+  data.forEach(({id, content, author, date}) => {
     commentsCardRow.innerHTML += getCommentHtml(id, content, author, date);
   });
 
@@ -112,5 +108,19 @@ function deleteComment(id) {
     comments: newComments
   });
   setToStorage('comments', state.comments);
-  renderComments();
+  renderComments(state.comments);
 }
+
+window.addEventListener('online', () => {
+  console.log('online');
+  renderComments(state.comments);
+  if(useLocalStorage) {
+    removeFromStorage('comments');
+  } else {
+    commentsDB.clearDB();
+  }
+});
+
+window.addEventListener('offline', () => {
+  console.log('offline');
+});

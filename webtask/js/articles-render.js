@@ -1,9 +1,8 @@
 const newsCardRow = document.querySelector('.news-cards');
 const newsFromStorage = getFromStorage('news') || [];
-renderArticle();
-function renderArticle() {
+function renderArticle(data) {
   newsCardRow.innerHTML = '';
-  newsFromStorage.forEach(({title, content, imageSrc}) => {
+  data.forEach(({title, content, imageSrc}) => {
     newsCardRow.innerHTML += getArticleHtml(title, content, imageSrc);
   });
 }
@@ -20,3 +19,23 @@ function getArticleHtml(title, content, imageSrc) {
     </figure>
   </article>`;
 }
+
+window.addEventListener('online', () => {
+  console.log('online');
+  const newsDB = new IndexedDB({
+    DBName: 'news',
+    DBVersion: 1,
+    store: 'news',
+    onSuccess: (event) => {
+      const db = event.target.result;
+      newsDB.getAndDisplayData((data) => {
+        renderArticle(data);
+      });
+    },
+  });
+  if(useLocalStorage) {
+    removeFromStorage('news');
+  } else {
+    newsDB.clearDB();
+  }
+});

@@ -1,50 +1,38 @@
+const newsStore = 'news';
+let newsDB = null;
 let state = {
 	title: '',
 	content: '',
 	imageSrc: '',
-	news: getFromStorage('news') || [
-		{
-			id: uuid(),
-			title: 'Tennis',
-			content: 'Lorem ipsum dollum dolorem eim sunt, iste. Quideipisci ipsam laudantium necessitatibus eveniet.',
-			imageSrc: './images/news-image.png',
-		},
-		{
-			id: uuid(),
-			title: 'Tennis 2 ',
-			content: 'Lorem ipsum dolor sit amet, consecteesci ipsam laudantium necessitatibus eveniet.',
-			imageSrc: './images/news-image.png',
-		},
-		{
-			id: uuid(),
-			title: 'Tennis 3',
-			content: 'Lorem ipsum dolor sit amet, consectetur menda quia dolor, aliquam voluptatem numquam adipisci ipsam laudantium necessitatibus eveniet.',
-			imageSrc: './images/news-image.png',
-		},
-	]
+	news: getFromStorage('news') || []
 };
 
 const chooseImage = document.querySelector('.image-file');
 const imagePreview = document.querySelector('.image-preview');
 const form = document.querySelector('.form');
-const title = form['news-title'];
-const content = form['news-content'];
+let title;
+let content;
+if(form) {
+	title = form['news-title'];
+	content = form['news-content'];
+	chooseImage.addEventListener('change', (event) => {
+		const file = event.target.files[0];
+		if(!file) {
+			imagePreview.setAttribute('src', '');
+		}
+		const fileReader = new FileReader();
+		fileReader.onload = (event) => {
+			if(!event.target.result) return;
+			setState({
+				imageSrc: event.target.result
+			});
+			imagePreview.setAttribute('src', state.imageSrc);
+		}
+		fileReader.readAsDataURL(file);
+	});
+}
 
-chooseImage.addEventListener('change', (event) => {
-	const file = event.target.files[0];
-	if(!file) {
-		imagePreview.setAttribute('src', '');
-	}
-	const fileReader = new FileReader();
-	fileReader.onload = (event) => {
-		if(!event.target.result) return;
-		setState({
-			imageSrc: event.target.result
-		});
-		imagePreview.setAttribute('src', state.imageSrc);
-	}
-	fileReader.readAsDataURL(file);
-});
+
 
 if(form) {
 	form.addEventListener('submit', (event) => {
@@ -67,18 +55,39 @@ if(form) {
 		};
 		setState(newState);
 		if(isOnline()) {
-			setToStorage('news', state.news);
+			// setToStorage('news', state.news);
 		} else {
-			window.setTimeout(() => {
+			if(useLocalStorage) {
 				setToStorage('news', state.news);
-			}, 500);
+			} else {
+				newsDB = new IndexedDB({
+					DBName: 'news',
+					DBVersion: 1,
+					store: newsStore,
+					onUpgrageNeeded: (event) => {
+						const db = event.target.result;
+						let data = db.createObjectStore(newsStore, {autoIncrement: true});
+					},
+					onSuccess: (event) => {
+						const db = event.target.result;
+						newsDB.addOneDocument(newNews);
+						newsDB.getAndDisplayData((data) => {
+							console.log(data);
+							setState({
+								news: data
+							});
+						});
+					},
+					onError: (event) => {
+						console.log('error opening database ' + event.target.errorCode);
+					}
+				});
+			}
 		}
 		snackbar.setText('Article added. 🧨🧨✨✨');
 		snackbar.show();
 		snackbar.hide(2500);
 		form.reset();
-		// window.setTimeout(() => {
-		// 	window.location.assign('news.html');
-		// }, 500);
 	});
 }
+

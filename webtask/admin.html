@@ -77,9 +77,8 @@
 								 name="news-title"
 								 class="form-text-input"
 								 placeholder="News title"
-								 minLength="10"
 								 required
-								 pattern="^[a-zA-Z0-9\S\p{IsCyrillic}]$"
+								 pattern=".{8,}\S"
 								 autocomplete="off"
 								 title="Please, type a title"
 								 >
@@ -90,7 +89,7 @@
 										class="form-text-input mt-1"
 										minLength="10"
 										required
-										pattern="^[a-zA-Z0-9\S\p{IsCyrillic}\S]$"
+										pattern="^[a-zA-Z0-9]\S$"
 										title="Please, type a content"
 										></textarea>
 					<p class="form-error-text">Not valid</p>
@@ -116,7 +115,8 @@
 		</picture>
 	</footer>
 	<script src="./js/mobile-menu.js"></script>
-	<script src="./js/utils.js"></script>
+	<script src="./js/global.js"></script>
+	<script src="./js/db.js"></script>
 	<script src="./js/theme-switcher.js"></script>
 	<script src="./js/index.js"></script>
 </body>

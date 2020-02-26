@@ -1,0 +1,5 @@
+[x] Create global useLocalStorage variable;
+
+[] When it's 'true' then all data go to localStorage;
+
+[] When it's 'false' - all data go to indexedDB.

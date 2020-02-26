@@ -1,0 +1,9 @@
+1) [x] Create isOnline function;
+
+2) [x] If !isOnline  add data to localStorage;
+
+3) [x] If isOnline, data go to server (can be emulator);
+
+4) [x] Create event listener on isOnline function;
+
+5) [x] Functional approach.

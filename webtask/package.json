@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "browser-sync": "^2.26.7",
+    "express": "^4.17.1",
     "global": "^4.4.0",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "mongoose": "^5.9.2"
   }
 }
