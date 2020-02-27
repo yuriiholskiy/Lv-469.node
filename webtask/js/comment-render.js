@@ -1,9 +1,8 @@
-const initialComments = [];
 const commentStore = 'comments';
 let commentsDB = null; 
 let state = {
   content: '',
-  comments: getFromStorage('comments') || initialComments
+  comments: getFromStorage('comments') || []
 };
 const form = document.querySelector('.form');
 const content = form['comment-content'];
@@ -28,13 +27,10 @@ form.addEventListener('submit', (event) => {
   };
 
   setState(newState);
+
   if(isOnline()) {
-    if(useLocalStorage) {
-      // setToStorage('comments', state.comments);
-    } else {
-      console.log('[Data go to indexedDB]');
-    }
-    renderComments(state.comments);
+    console.log('[Data go to the server]');
+    // render(commentsCardRow, state.news, getCommentHtml);
   } else {
     if(useLocalStorage) {
       setToStorage('comments', state.comments);
@@ -68,59 +64,13 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-// renderComments();
-function renderComments(data) {
-  commentsCardRow.innerHTML = '';
-  data.forEach(({id, content, author, date}) => {
-    commentsCardRow.innerHTML += getCommentHtml(id, content, author, date);
-  });
-
-  const delButton = document.querySelectorAll('.comment-del-button');
-  delButton.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-id');
-      deleteComment(id);
-    });
-  });
-}
-function getCommentHtml(id, content, author, date) {
-  return `
-    <div class="comment mt-2 pb-1 anim-trX-middle">
-      <p class="comment-content">
-        ${content}
-      </p>
-      <button type="button"
-              class="comment-del-button button-danger"
-              data-id='${id}'>
-              ⨉
-      </button>
-      <div class="comment-footer flex-between mt-1">
-        <time class="d-block comment-data">${date}</time>
-        <span class="comment-author">${author}</span>
-      </div>
-    </div>`;
-}
-
-
-function deleteComment(id) {
-  const newComments = state.comments.filter(comment => comment.id !== id);
-  setState({
-    comments: newComments
-  });
-  setToStorage('comments', state.comments);
-  renderComments(state.comments);
-}
 
 window.addEventListener('online', () => {
-  console.log('online');
-  renderComments(state.comments);
-  if(useLocalStorage) {
-    removeFromStorage('comments');
-  } else {
-    commentsDB.clearDB();
-  }
+  render(commentsCardRow, state.comments, getCommentHtml);
+  
+  useLocalStorage ? removeFromStorage('comments') : commentsDB.clearDB();
 });
 
-window.addEventListener('offline', () => {
-  console.log('offline');
-});
+// window.addEventListener('offline', () => {
+//   console.log('offline');
+// });

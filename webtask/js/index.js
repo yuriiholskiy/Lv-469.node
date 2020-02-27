@@ -6,6 +6,8 @@ let state = {
 	imageSrc: '',
 	news: getFromStorage('news') || []
 };
+const newsCardRow = document.querySelector('.news-cards');
+const newsFromStorage = getFromStorage('news') || [];
 
 const chooseImage = document.querySelector('.image-file');
 const imagePreview = document.querySelector('.image-preview');
@@ -33,7 +35,6 @@ if(form) {
 }
 
 
-
 if(form) {
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
@@ -55,7 +56,7 @@ if(form) {
 		};
 		setState(newState);
 		if(isOnline()) {
-			// setToStorage('news', state.news);
+			console.log('[Data go to the server]');
 		} else {
 			if(useLocalStorage) {
 				setToStorage('news', state.news);
@@ -71,12 +72,6 @@ if(form) {
 					onSuccess: (event) => {
 						const db = event.target.result;
 						newsDB.addOneDocument(newNews);
-						newsDB.getAndDisplayData((data) => {
-							console.log(data);
-							setState({
-								news: data
-							});
-						});
 					},
 					onError: (event) => {
 						console.log('error opening database ' + event.target.errorCode);
@@ -91,3 +86,22 @@ if(form) {
 	});
 }
 
+window.addEventListener('online', () => {
+	if(!localStorage) {
+		newsDB = new IndexedDB({
+			DBName: 'news',
+			DBVersion: 1,
+			store: 'news',
+			onSuccess: () => {
+				newsDB.getAndDisplayData((data) => {
+					setState({
+						news: data
+					});
+				});
+			},
+		});
+	}
+	render(newsCardRow, state.news, getArticleHtml);
+	
+	useLocalStorage ? removeFromStorage('news') : newsDB.clearDB();
+});
