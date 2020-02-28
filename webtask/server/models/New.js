@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const newsSchema = {
+const newsSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -15,7 +15,7 @@ const newsSchema = {
     type: String,
     required: true
   }
-};
+});
 
 module.exports = mongoose.model(
   'news',

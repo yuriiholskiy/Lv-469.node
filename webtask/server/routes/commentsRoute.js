@@ -1,13 +1,13 @@
 const express = require('express');
-const New = require('../models/New');
+const Comment = require('../models/Comment');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const articles = await New.find();
+    const comments = await Comment.find();
     return res.status(200).send({
       error: false,
-      articles
+      comments
     });
   } catch(error) {
     return res.status(500).send({error});
@@ -17,10 +17,10 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const body = req.body;
-    const article = await New.create(body);
+    const comment = await Comment.create(body);
     return res.status(201).send({
       error: false,
-      article
+      comment
     });
   } catch(error) {
     return res.status(500).send({error});

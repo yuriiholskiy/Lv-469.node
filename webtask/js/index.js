@@ -34,7 +34,6 @@ if(form) {
 	});
 }
 
-
 if(form) {
 	form.addEventListener('submit', (event) => {
 		event.preventDefault();
@@ -44,7 +43,7 @@ if(form) {
 			content: content.value
 		});
 		const newNews = {
-			id: uuid(),
+			_id: uuid(),
 			title: state.title,
 			content: state.content,
 			imageSrc: state.imageSrc

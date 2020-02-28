@@ -2,12 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const commentsSchema = {
+const commentsSchema = new Schema({
   content: {
-    type: String,
-    required: true
-  },
-  imageSrc: {
     type: String,
     required: true
   },
@@ -16,9 +12,10 @@ const commentsSchema = {
     required: true
   },
   date: {
+    type: Date,
     required: true
   }
-};
+});
 
 module.exports = mongoose.model(
   'comments',

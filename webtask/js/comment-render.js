@@ -8,17 +8,26 @@ const form = document.querySelector('.form');
 const content = form['comment-content'];
 const commentsCardRow = document.querySelector('.comment-wrap');
 
-form.addEventListener('submit', (event) => {
+window.addEventListener('load', async () => {
+  const { data } = await http.get('comments');
+  const { error, comments } = data;
+  if(!error && isOnline()) {
+    render(commentsCardRow, comments, getCommentHtml);
+  } else {
+    commentsCardRow.innerHTML = 'Some server error happens';
+  }
+});
+
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if(!content.checkValidity()) return;
   setState({
     content: content.value
   });
   const newComment = {
-    id: uuid(),
     content: state.content,
     author: 'Who?',
-    date: new Date().toLocaleString(),
+    date: new Date().toLocaleString()
   };
 
   const newState = {
@@ -29,8 +38,8 @@ form.addEventListener('submit', (event) => {
   setState(newState);
 
   if(isOnline()) {
-    console.log('[Data go to the server]');
-    // render(commentsCardRow, state.news, getCommentHtml);
+		await http.post('comments', newComment);
+    render(commentsCardRow, state.comments, getCommentHtml);
   } else {
     if(useLocalStorage) {
       setToStorage('comments', state.comments);

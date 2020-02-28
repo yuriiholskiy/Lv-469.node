@@ -74,3 +74,8 @@ const getArticleHtml = ({title, content, imageSrc}) => (
     </figure>
 	</article>`
 );
+
+// axios instance
+const http = axios.create({
+  baseURL: 'http://localhost:3012/api/'
+});
