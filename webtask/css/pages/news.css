@@ -2,7 +2,9 @@
 @import url('../helper-classes.css');
 @import url('../animation.css');
 @import url('../grid.css');
+
 @import url('../component/card.css');
+@import url('../component/loader.css');
 @import url('../component/button.css');
 
 @import url('../blocks/header.css');

@@ -1,5 +1,6 @@
 const express = require('express');
 const New = require('../models/New');
+const serverErrorHandler = require('../shared/serverError');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -10,7 +11,7 @@ router.get('/', async (req, res) => {
       articles
     });
   } catch(error) {
-    return res.status(500).send({error});
+    serverErrorHandler(res, error);
   }
 });
 
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
       article
     });
   } catch(error) {
-    return res.status(500).send({error});
+    serverErrorHandler(res, error);
   } 
 });
 

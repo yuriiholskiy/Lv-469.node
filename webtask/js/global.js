@@ -13,9 +13,11 @@ const setState = (newState) => {
 }
 
 // f to render data;
-const render = (element = document.body, data = [], getHtml = () => {}) => {
-	if(!data.length) return;
+const render = (element = document.body, data = [], getHtml = '') => {
 	element.innerHTML = '';
+	if(!data.length) {
+		element.innerHTML = getHtml;
+	};
 	data.forEach(item => element.innerHTML += getHtml(item));
 };
 
@@ -62,7 +64,7 @@ const getCommentHtml = ({id, content, date, author}) => (`
 
 // f to get article html;
 const getArticleHtml = ({title, content, imageSrc}) => (
-	`<article class="col col-3 col-md-6 col-sm-11 mt-1">
+	`<article class="col col-4 col-md-6 col-sm-11 mt-1">
     <figure class="card anim-trY-slow">
       <img src=${imageSrc} alt="Table tennis last news">
       <figcaption class="card-caption text-center mt-1">
@@ -75,7 +77,41 @@ const getArticleHtml = ({title, content, imageSrc}) => (
 	</article>`
 );
 
+// s to get loader html;
+const getLoaderHtml = `<div class="loader">Loading...</div>`;
+
 // axios instance
 const http = axios.create({
   baseURL: 'http://localhost:3012/api/'
 });
+
+
+// api objectж
+const api = {
+	_commentURL: 'comments',
+	_newsURL: 'news',
+	get commentURL() {
+		return this._commentURL;
+	},
+	get newsURL() {
+		return this._newsURL;
+	},
+	set commentURL(newURL) {
+		this._commentURL = newURL;
+	},
+	set newsURL(newURL) {
+		this._newsURL = newURL;
+	},
+	getComments() {
+		return http.get(this._commentURL);
+	},
+	addComment(comment) {
+		return http.post(this._commentURL, comment);
+	},
+	getNews() {
+		return http.get(this._newsURL);
+	},
+	addNew(article) {
+		return http.post(this._newsURL, article);
+	}
+};

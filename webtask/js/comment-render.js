@@ -1,36 +1,48 @@
 const commentStore = 'comments';
 let commentsDB = null; 
 let state = {
+  nickname: '',
   content: '',
   comments: getFromStorage('comments') || []
 };
 const form = document.querySelector('.form');
 const content = form['comment-content'];
+const nickname = form['nickname'];
 const commentsCardRow = document.querySelector('.comment-wrap');
 
 window.addEventListener('load', async () => {
-  const { data } = await http.get('comments');
-  const { error, comments } = data;
-  if(!error && isOnline()) {
-    render(commentsCardRow, comments, getCommentHtml);
-  } else {
-    commentsCardRow.innerHTML = 'Some server error happens';
+  if(!state.comments.length) {
+    render(commentsCardRow, [], getLoaderHtml);
   }
+  window.setTimeout(async () => {
+    const { data } = await api.getComments();
+    const { error, comments } = data;
+    if(!error && isOnline()) {
+      setState({
+        comments
+      });
+      render(commentsCardRow, comments, getCommentHtml);
+    } else {
+      render(commentsCardRow, [], 'Some server error happens');
+    }
+  }, 500);
 });
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   if(!content.checkValidity()) return;
   setState({
+    nickname: nickname.value,
     content: content.value
   });
   const newComment = {
     content: state.content,
-    author: 'Who?',
+    author: state.nickname,
     date: new Date().toLocaleString()
   };
-
+  
   const newState = {
+    nickname: '',
     content: '',
     comments: [...state.comments, newComment]
   };
@@ -38,7 +50,7 @@ form.addEventListener('submit', async (event) => {
   setState(newState);
 
   if(isOnline()) {
-		await http.post('comments', newComment);
+    await api.addComment(newComment);
     render(commentsCardRow, state.comments, getCommentHtml);
   } else {
     if(useLocalStorage) {

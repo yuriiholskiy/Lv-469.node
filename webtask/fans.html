@@ -60,6 +60,18 @@
 			<div class="comment-wrap">
 			</div>
       <form class="row justify-center mt-2 form anim-trY-fast">
+				<div class="col col-8 col-sm-12">
+					<input type="text"
+									name="nickname"
+									class="form-text-input"
+									placeholder="Your nickname"
+									required
+									pattern=".{3,}\S"
+									autocomplete="off"
+									title="Please, type your nickname"
+					>
+					<p class="form-error-text">Not valid</p>
+				</div>			
         <div class="col col-7 col-sm-12">
           <textarea name="comment-content"
                     cols="30"

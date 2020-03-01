@@ -1,0 +1,7 @@
+1) [x] Create express server;
+
+2) [x] Add routes for comments and news;
+
+3) [x] Connect mongodb;
+
+4) [] Write how to manage this project.

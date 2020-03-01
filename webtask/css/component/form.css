@@ -35,3 +35,9 @@
 .form-text-input:invalid:not(:placeholder-shown) ~ .form-error-text {
 	transform: scale(1);
 }
+@media screen and (max-width: 600px) {
+	.form-error-text {
+		left: 50%;
+		bottom: 0;
+	}
+}
