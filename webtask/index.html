@@ -1,135 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Table Tennis</title>
-	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/index.css">
-</head>
-<body>
-	<header class="header">
-		<nav class="navigation flex-between">
-			<button class="button button-warning nav-mobile-button anim-trX-middle">
-				<span class="nav-mobile-line"></span>
-			</button>
-			<ul class="nav-list anim-trX-middle">
-				<li class="nav-list-item">
-					<a href="#" class="nav-list-link active">main</a>
-				</li>
-				<li class="nav-list-item">
-					<ul class="nav-dropdown" id="matches">
-						<li class="nav-dropdown-top">
-							<a href="matches.html" class="nav-dropdown-link">
-								Calendar of matches
-							</a>
-						</li>
-						<li class="nav-dropdown-bottom">
-							<a href="#" class="nav-dropdown-link">Close</a>
-							<a href="#" class="nav-dropdown-link">Something else</a>
-						</li>
-					</ul>
-					<a href="#matches" class="nav-list-link nav-dropdown-active">
-						<span class="nav-list-dropdown">matches</span>
-					</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="news.html" class="nav-list-link">news</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="fans.html" class="nav-list-link">fans</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="contacts.html" class="nav-list-link">contacts</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="admin.html" class="nav-list-link">admin</a>
-				</li>
-			</ul>
-			<picture class="logo anim-trX-opposite-middle">
-				<source srcset="./images/logo.svg" type="image/svg+xml">
-				<a href="#">
-					<img src="./images/logo.png" alt="Table tennis" class="logo-img">
-				</a>
-			</picture>
-		</nav>
-	</header>
-	<main class="main-content">
-		<img src="./images/main-bg.jpeg" alt="Table tennis" class="main-banner-image anim-bounce-fast">
-		<section class="container">
-			<div class="main-block" id="history">
-				<h1 class="main-head text-center">
-					table tennis
-					<span class="main-subhead">(a brief history)</span>
-				</h1>
-				<p class="main-paragraph">
-					<strong>Table tennis</strong>, also called (trademark) <strong>Ping-Pong</strong>, ball game similar in principle to lawn tennis and played on a flat table divided into two equal courts by a net fixed across its width at the middle.
-					The game is popular all over the world. In most countries it is very highly organized as a competitive sport, especially in <em>Europe</em> and <em>Asia</em>, particularly in <em>China</em> and <em>Japan</em>.
-				</p>
-				<p class="main-paragraph">
-					The game was invented in England in the early days of the 20th century and was originally called Ping-Pong, a trade name. The name table tennis was adopted in 1921–22 when the old Ping-Pong Association formed in 1902 was revived. The original association had broken up about 1905, though apparently the game continued to be played in parts of England outside London and by the 1920s was being played in many countries. Led by representatives of Germany, Hungary, and England, the Fédération Internationale de Tennis de Table (International Table Tennis Federation) was founded in 1926, the founding members being England, Sweden, Hungary, India, Denmark, Germany, Czechoslovakia, Austria, and Wales. By the mid-1990s more than 165 national associations were members.
-				</p>
-				<p class="main-paragraph">
-					The first world championships were held in London in 1926, and from then until 1939 the game was dominated by players from central Europe, the men’s team event being won nine times by Hungary and twice by Czechoslovakia. In the mid-1950s Asia emerged as a breeding ground of champions, and from that time the men’s team event has been won by either Japan or China, as has the women’s event, though to a lesser extent; North Korea also became an international force. In 1980 the first World Cup was held, and Guo Yuehua of China won the $12,500 first prize. Table tennis became an Olympic sport in 1988, with singles and doubles competition for men and women.
-				</p>
-				<small>
-					Information take from
-					<a class="link"
-						 rel="noopener"
-						 target="_blank"
-						 href="https://www.britannica.com/sports/table-tennis">britannica</a>.
-				</small>
-			</div>
-			<div class="main-block" id="last-victory">
-				<h2 class="main-head text-center">
-					last victory
-				</h2>
-				<p class="main-paragraph">
-					The 2019 <a class="link"
-					 						rel="noopener"
-					 						target="_blank"
-					 						href="https://en.wikipedia.org/wiki/World_Table_Tennis_Championships">
-					World Table Tennis Championship</a> is being held in Budapest, Hungary from <strong>Sunday 21 to 28 April 2019</strong> at the Hungexpo.
-				</p>
-				<h3 class="winners-head text-left">Winners:</h3>
-				<ol class="main-winner-list text-left">
-					<li class="main-winner-item">
-						Men's Singles: <strong>Ma Long</strong> (China);
-					</li>
-					<li class="main-winner-item">
-						Women's Singles Singles: <strong>Liu Shiwen</strong> (China);
-					</li>
-					<li class="main-winner-item">
-						Men's Doubles: <strong>Ma Long</strong> and <strong>Wang Chuqin</strong> (China);
-					</li>
-					<li class="main-winner-item">
-						Women's Doubles: <strong>Sun Yingsha</strong> and <strong>Wang Manyu</strong> (China);
-					</li>
-					<li class="main-winner-item">
-						Mixed Doubles: <strong>Xu Xin</strong> and <strong>Liu Shiwen</strong> (China).
-					</li>
-				</ol>
-				<small class="text-left">Information take from
-					<a class="link" href="https://en.wikipedia.org/wiki/2019_World_Table_Tennis_Championships">
-						wikipedia
-					</a>.
-				</small>
-			</div>
-		</section>
-	</main>
-	<footer class="footer text-center flex-around">
-		<p class="footer-paragraph">
-			Created by Yurii Holskyi, all rights reserved &copy;
-		</p>
-		<picture class="logo">
-			<source srcset="./images/logo.svg" type="image/svg+xml">
-			<a href="#">
-				<img src="./images/logo.png" alt="Table tennis" class="logo-img">
-			</a>
-		</picture>
-	</footer>
-	<script src="./js/mobile-menu.js"></script>
-	<script src="./js/global.js"></script>
-	<script src="./js/theme-switcher.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Table Tennis</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation flex-between">
+        <button class="button button-warning nav-mobile-button anim-trX-middle">
+          <span class="nav-mobile-line"></span>
+        </button>
+        <ul class="nav-list anim-trX-middle">
+          <li class="nav-list-item">
+            <a href="#" class="nav-list-link active">main</a>
+          </li>
+          <li class="nav-list-item">
+            <ul class="nav-dropdown" id="matches">
+              <li class="nav-dropdown-top">
+                <a href="matches.html" class="nav-dropdown-link">
+                  Calendar of matches
+                </a>
+              </li>
+              <li class="nav-dropdown-bottom">
+                <a href="#" class="nav-dropdown-link">Close</a>
+                <a href="#" class="nav-dropdown-link">Something else</a>
+              </li>
+            </ul>
+            <a href="#matches" class="nav-list-link nav-dropdown-active">
+              <span class="nav-list-dropdown">matches</span>
+            </a>
+          </li>
+          <li class="nav-list-item">
+            <a href="news.html" class="nav-list-link">news</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="fans.html" class="nav-list-link">fans</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="contacts.html" class="nav-list-link">contacts</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="admin.html" class="nav-list-link">admin</a>
+          </li>
+        </ul>
+        <picture class="logo anim-trX-opposite-middle">
+          <source srcset="./images/logo.svg" type="image/svg+xml" />
+          <a href="#">
+            <img src="./images/logo.png" alt="Table tennis" class="logo-img" />
+          </a>
+        </picture>
+      </nav>
+    </header>
+    <main class="main-content">
+      <img
+        src="./images/main-bg.jpeg"
+        alt="Table tennis"
+        class="main-banner-image anim-bounce-fast"
+      />
+      <section class="container">
+        <div class="main-block" id="history">
+          <h1 class="main-head text-center">
+            table tennis
+            <span class="main-subhead">(a brief history)</span>
+          </h1>
+          <p class="main-paragraph">
+            <strong>Table tennis</strong>, also called (trademark)
+            <strong>Ping-Pong</strong>, ball game similar in principle to lawn
+            tennis and played on a flat table divided into two equal courts by a
+            net fixed across its width at the middle. The game is popular all
+            over the world. In most countries it is very highly organized as a
+            competitive sport, especially in <em>Europe</em> and <em>Asia</em>,
+            particularly in <em>China</em> and <em>Japan</em>.
+          </p>
+          <p class="main-paragraph">
+            The game was invented in England in the early days of the 20th
+            century and was originally called Ping-Pong, a trade name. The name
+            table tennis was adopted in 1921–22 when the old Ping-Pong
+            Association formed in 1902 was revived. The original association had
+            broken up about 1905, though apparently the game continued to be
+            played in parts of England outside London and by the 1920s was being
+            played in many countries. Led by representatives of Germany,
+            Hungary, and England, the Fédération Internationale de Tennis de
+            Table (International Table Tennis Federation) was founded in 1926,
+            the founding members being England, Sweden, Hungary, India, Denmark,
+            Germany, Czechoslovakia, Austria, and Wales. By the mid-1990s more
+            than 165 national associations were members.
+          </p>
+          <p class="main-paragraph">
+            The first world championships were held in London in 1926, and from
+            then until 1939 the game was dominated by players from central
+            Europe, the men’s team event being won nine times by Hungary and
+            twice by Czechoslovakia. In the mid-1950s Asia emerged as a breeding
+            ground of champions, and from that time the men’s team event has
+            been won by either Japan or China, as has the women’s event, though
+            to a lesser extent; North Korea also became an international force.
+            In 1980 the first World Cup was held, and Guo Yuehua of China won
+            the $12,500 first prize. Table tennis became an Olympic sport in
+            1988, with singles and doubles competition for men and women.
+          </p>
+          <small>
+            Information take from
+            <a
+              class="link"
+              rel="noopener"
+              target="_blank"
+              href="https://www.britannica.com/sports/table-tennis"
+              >britannica</a
+            >.
+          </small>
+        </div>
+        <div class="main-block" id="last-victory">
+          <h2 class="main-head text-center">
+            last victory
+          </h2>
+          <p class="main-paragraph">
+            The 2019
+            <a
+              class="link"
+              rel="noopener"
+              target="_blank"
+              href="https://en.wikipedia.org/wiki/World_Table_Tennis_Championships"
+            >
+              World Table Tennis Championship</a
+            >
+            is being held in Budapest, Hungary from
+            <strong>Sunday 21 to 28 April 2019</strong> at the Hungexpo.
+          </p>
+          <h3 class="winners-head text-left">Winners:</h3>
+          <ol class="main-winner-list text-left">
+            <li class="main-winner-item">
+              Men's Singles:
+              <strong>Ma Long</strong> (China);
+            </li>
+            <li class="main-winner-item">
+              Women's Singles Singles:
+              <strong>Liu Shiwen</strong> (China);
+            </li>
+            <li class="main-winner-item">
+              Men's Doubles: <strong>Ma Long</strong> and
+              <strong>Wang Chuqin</strong> (China);
+            </li>
+            <li class="main-winner-item">
+              Women's Doubles:
+              <strong>Sun Yingsha</strong> and
+              <strong>Wang Manyu</strong> (China);
+            </li>
+            <li class="main-winner-item">
+              Mixed Doubles: <strong>Xu Xin</strong> and
+              <strong>Liu Shiwen</strong> (China).
+            </li>
+          </ol>
+          <small class="text-left"
+            >Information take from
+            <a
+              class="link"
+              href="https://en.wikipedia.org/wiki/2019_World_Table_Tennis_Championships"
+            >
+              wikipedia </a
+            >.
+          </small>
+        </div>
+      </section>
+    </main>
+    <footer class="footer text-center flex-around">
+      <p class="footer-paragraph">
+        Created by Yurii Holskyi, all rights reserved &copy;
+      </p>
+      <picture class="logo">
+        <source srcset="./images/logo.svg" type="image/svg+xml" />
+        <a href="#">
+          <img src="./images/logo.png" alt="Table tennis" class="logo-img" />
+        </a>
+      </picture>
+    </footer>
+    <script src="./js/mobile-menu.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./js/theme-switcher.js"></script>
+  </body>
 </html>

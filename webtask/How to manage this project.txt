@@ -1,0 +1,10 @@
+1) Go to github: 
+https://github.com/yuriiholskiy/Lv-469.node/tree/master/webtask;
+
+2) Clone repository;
+
+3) Open console in this folder and type "npm i", 
+then go to the server folder and also "cd server && npm i";
+(This will install all dependencies)
+
+4) Go to root folder and run command "npm run dev" and here we go;

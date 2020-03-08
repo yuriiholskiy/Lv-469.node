@@ -5,17 +5,17 @@ const browserSync = require('browser-sync').create();
 // browserSync and watchers
 function watch() {
   browserSync.init({
-    server: { baseDir: "./" },
+    server: { baseDir: './' },
     tunnel: false,
-    host:'localhost',
+    host: 'localhost',
     port: 8080,
     open: true,
-    logLevel: "silent",
+    logLevel: 'silent',
     notify: false,
-    logLevel: "info"
+    logLevel: 'info'
   });
 
-	gulp.watch('./*.html', browserSync.reload);
+  gulp.watch('./*.html', browserSync.reload);
 }
 
 gulp.task('watch', watch);

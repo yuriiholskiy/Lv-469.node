@@ -1,115 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Fans</title>
-	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="./css/pages/fans.css">
-</head>
-<body>
-	<header class="header">
-		<nav class="navigation flex-between">
-			<button class="button button-warning nav-mobile-button anim-trX-middle">
-				<span class="nav-mobile-line"></span>
-			</button>
-			<ul class="nav-list anim-trX-middle">
-				<li class="nav-list-item">
-					<a href="index.html" class="nav-list-link">main</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="#matches" class="nav-list-link nav-dropdown-active">
-						<span class="nav-list-dropdown">matches</span>
-					</a>
-					<ul class="nav-dropdown" id="matches">
-						<li class="nav-dropdown-top">
-							<a href="matches.html" class="nav-dropdown-link">
-								Calendar of matches
-							</a>
-						</li>
-						<li class="nav-dropdown-bottom">
-							<a href="#" class="nav-dropdown-link">Something else</a>
-							<a href="#" class="nav-dropdown-link">Close</a>
-						</li>
-					</ul>
-				</li>
-				<li class="nav-list-item">
-					<a href="news.html" class="nav-list-link">news</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="fans.html" class="nav-list-link active">fans</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="contacts.html" class="nav-list-link">contacts</a>
-				</li>
-				<li class="nav-list-item">
-					<a href="admin.html" class="nav-list-link">admin</a>
-				</li>
-			</ul>
-			<picture class="logo anim-trX-opposite-middle">
-				<source srcset="./images/logo.svg" type="image/svg+xml">
-				<a href="#">
-					<img src="./images/logo.png" alt="Table tennis" class="logo-img">
-				</a>
-			</picture>
-		</nav>
-	</header>
-	<main>
-		<h2 class="text-center mt-2 anim-trY-opposite-middle">Appeal of fans</h2>
-		<div class="container">
-			<div class="comment-wrap">
-			</div>
-      <form class="row justify-center mt-2 form anim-trY-fast">
-				<div class="col col-8 col-sm-12">
-					<input type="text"
-									name="nickname"
-									class="form-text-input"
-									placeholder="Your nickname"
-									required
-									pattern=".{3,}\S"
-									autocomplete="off"
-									title="Please, type your nickname"
-					>
-					<p class="form-error-text">Not valid</p>
-				</div>			
-        <div class="col col-7 col-sm-12">
-          <textarea name="comment-content"
-                    cols="30"
-                    rows="10"
-                    placeholder="Write an appeal"
-                    class="form-text-input mt-1"
-                    minLength="10"
-                    required
-                    pattern="^[a-zA-Z0-9]\S$"
-                    title="Please, type an appeal"
-                    ></textarea>
-					<p class="form-error-text">Not valid</p>
-        </div>
-        <div class="col col-1 col-sm-12 align-self-end text-center">
-          <input class="button button-primary" type="submit" value="Send">
-        </div>
-      </form>
-		</div>
-		<div class="snackbar bottom">
-			Action successfully done 🎉
-		</div>
-	</main>
-	<footer class="footer text-center flex-around">
-		<p class="footer-paragraph">
-			Created by Yurii Holskyi, all rights reserved &copy;
-		</p>
-		<picture class="logo">
-			<source srcset="./images/logo.svg" type="image/svg+xml">
-			<a href="#">
-				<img src="./images/logo.png" alt="Table tennis" class="logo-img">
-			</a>
-		</picture>
-	</footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-	<script src="./js/mobile-menu.js"></script>
-	<script src="./js/global.js"></script>
-	<script src="./js/db.js"></script>
-	<script src="./js/theme-switcher.js"></script>
-	<script src="./js/comment-render.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fans</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/pages/fans.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navigation flex-between">
+        <button class="button button-warning nav-mobile-button anim-trX-middle">
+          <span class="nav-mobile-line"></span>
+        </button>
+        <ul class="nav-list anim-trX-middle">
+          <li class="nav-list-item">
+            <a href="index.html" class="nav-list-link">main</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="#matches" class="nav-list-link nav-dropdown-active">
+              <span class="nav-list-dropdown">matches</span>
+            </a>
+            <ul class="nav-dropdown" id="matches">
+              <li class="nav-dropdown-top">
+                <a href="matches.html" class="nav-dropdown-link">
+                  Calendar of matches
+                </a>
+              </li>
+              <li class="nav-dropdown-bottom">
+                <a href="#" class="nav-dropdown-link">Something else</a>
+                <a href="#" class="nav-dropdown-link">Close</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-list-item">
+            <a href="news.html" class="nav-list-link">news</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="fans.html" class="nav-list-link active">fans</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="contacts.html" class="nav-list-link">contacts</a>
+          </li>
+          <li class="nav-list-item">
+            <a href="admin.html" class="nav-list-link">admin</a>
+          </li>
+        </ul>
+        <picture class="logo anim-trX-opposite-middle">
+          <source srcset="./images/logo.svg" type="image/svg+xml" />
+          <a href="#">
+            <img src="./images/logo.png" alt="Table tennis" class="logo-img" />
+          </a>
+        </picture>
+      </nav>
+    </header>
+    <main>
+      <h2 class="text-center mt-2 anim-trY-opposite-middle">
+        Appeal of fans
+      </h2>
+      <div class="container">
+        <div class="comment-wrap"></div>
+        <form class="row justify-center mt-2 form anim-trY-fast">
+          <div class="col col-8 col-sm-12">
+            <input
+              type="text"
+              name="nickname"
+              class="form-text-input"
+              placeholder="Your nickname"
+              required
+              pattern=".{3,}\S"
+              autocomplete="off"
+              title="Please, type your nickname"
+            />
+            <p class="form-error-text">Not valid</p>
+          </div>
+          <div class="col col-7 col-sm-12">
+            <textarea
+              name="comment-content"
+              cols="30"
+              rows="10"
+              placeholder="Write an appeal"
+              class="form-text-input mt-1"
+              minlength="10"
+              required
+              pattern="^[a-zA-Z0-9]\S$"
+              title="Please, type an appeal"
+            ></textarea>
+            <p class="form-error-text">Not valid</p>
+          </div>
+          <div class="col col-1 col-sm-12 align-self-end text-center">
+            <input class="button button-primary" type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+      <div class="snackbar bottom">
+        Action successfully done 🎉
+      </div>
+    </main>
+    <footer class="footer text-center flex-around">
+      <p class="footer-paragraph">
+        Created by Yurii Holskyi, all rights reserved &copy;
+      </p>
+      <picture class="logo">
+        <source srcset="./images/logo.svg" type="image/svg+xml" />
+        <a href="#">
+          <img src="./images/logo.png" alt="Table tennis" class="logo-img" />
+        </a>
+      </picture>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="./js/mobile-menu.js"></script>
+    <script src="./js/global.js"></script>
+    <script src="./js/db.js"></script>
+    <script src="./js/theme-switcher.js"></script>
+    <script src="./js/comment-render.js"></script>
+  </body>
 </html>

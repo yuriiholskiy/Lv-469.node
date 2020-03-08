@@ -10,22 +10,21 @@ router.get('/', async (req, res) => {
       error: false,
       articles
     });
-  } catch(error) {
+  } catch (error) {
     serverErrorHandler(res, error);
   }
 });
 
 router.post('/', async (req, res) => {
   try {
-    const body = req.body;
-    const article = await New.create(body);
+    const article = await New.create(req.body);
     return res.status(201).send({
       error: false,
       article
     });
-  } catch(error) {
+  } catch (error) {
     serverErrorHandler(res, error);
-  } 
+  }
 });
 
 module.exports = router;

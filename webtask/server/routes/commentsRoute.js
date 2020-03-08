@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
       error: false,
       comments
     });
-  } catch(error) {
+  } catch (error) {
     serverErrorHandler(res, error);
   }
 });
@@ -23,9 +23,9 @@ router.post('/', async (req, res) => {
       error: false,
       comment
     });
-  } catch(error) {
+  } catch (error) {
     serverErrorHandler(res, error);
-  } 
+  }
 });
 
 module.exports = router;

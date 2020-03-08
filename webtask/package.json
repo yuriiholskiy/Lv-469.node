@@ -1,9 +1,16 @@
 {
+  "name": "clien",
+  "version": "1.0.0",
+  "main": "./js/index.js",
+  "license": "MIT",
   "scripts": {
-    "start": "gulp watch"
+    "client": "gulp watch",
+    "server": "cd server && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "browser-sync": "^2.26.7",
+    "concurrently": "^5.1.0",
     "global": "^4.4.0",
     "gulp": "^4.0.2"
   }

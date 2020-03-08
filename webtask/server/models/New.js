@@ -12,12 +12,8 @@ const newsSchema = new Schema({
     required: true
   },
   imageSrc: {
-    type: String,
-    required: true
+    type: String
   }
 });
 
-module.exports = mongoose.model(
-  'news',
-  newsSchema
-);
+module.exports = mongoose.model('news', newsSchema);
