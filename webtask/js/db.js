@@ -13,7 +13,7 @@ class IndexedDB {
     store.add(data);
     tx.onerror = (event) => {
       console.log('error storing note ' + event.target.errorCode);
-    }
+    };
   }
   getAndDisplayData(render) {
     const tx = this.request.result.transaction([this.store], 'readonly');
@@ -29,7 +29,7 @@ class IndexedDB {
       } else {
         render(allData);
       }
-    }
+    };
   }
   clearDB() {
     const deletedDB = window.indexedDB.deleteDatabase(this.DBName);

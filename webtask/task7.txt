@@ -4,4 +4,4 @@
 
 3) [x] Connect mongodb;
 
-4) [] Write how to manage this project.
+4) [x] Write how to manage this project.

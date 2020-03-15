@@ -45,6 +45,11 @@ if (snackbarElement) {
     }
   };
 }
+const showSnackbar = (message, time = 2500) => {
+  snackbar.setText(message);
+  snackbar.show();
+  snackbar.hide(time);
+};
 
 // f to check if online;
 const isOnline = () => {
@@ -116,4 +121,43 @@ const api = {
   addNew(article) {
     return http.post(this.newsURL, article);
   }
+};
+
+window.addEventListener('offline', () => {
+  showSnackbar('You offline now. 🔴🔴🔴', 3000);
+});
+
+const renderAsyncNews = () => {
+  if (!state.news.length) {
+    render(newsCardRow, [], getLoaderHtml);
+  }
+  window.setTimeout(async () => {
+    const { data } = await api.getNews();
+    const { error, articles: news } = data;
+    if (!error && isOnline()) {
+      setState({
+        news
+      });
+      render(newsCardRow, news, getArticleHtml);
+    } else {
+      render(newsCardRow, [], 'Some server error happens');
+    }
+  }, 500);
+};
+const renderAsyncComments = () => {
+  if (!state.comments.length) {
+    render(commentsCardRow, [], getLoaderHtml);
+  }
+  window.setTimeout(async () => {
+    const { data } = await api.getComments();
+    const { error, comments } = data;
+    if (!error && isOnline()) {
+      setState({
+        comments
+      });
+      render(commentsCardRow, comments, getCommentHtml);
+    } else {
+      render(commentsCardRow, [], 'Some server error happens');
+    }
+  }, 500);
 };

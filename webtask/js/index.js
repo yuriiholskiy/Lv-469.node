@@ -8,24 +8,8 @@ let state = {
 };
 const newsCardRow = document.querySelector('.news-cards');
 const newsFromStorage = getFromStorage('news') || [];
-function b64_to_utf8(str) {
-  return decodeURIComponent(escape(window.atob(str)));
-}
-if (window.location.pathname === '/news.html') {
-  window.addEventListener('load', async () => {
-    if (!state.news.length) {
-      render(newsCardRow, [], getLoaderHtml);
-    }
-    window.setTimeout(async () => {
-      const { data } = await api.getNews();
-      const { error, articles: news } = data;
-      if (!error && isOnline()) {
-        render(newsCardRow, news, getArticleHtml);
-      } else {
-        render(newsCardRow, [], 'Some server error happens');
-      }
-    }, 500);
-  });
+if (window.location.pathname.includes('/news.html')) {
+  window.addEventListener('load', renderAsyncNews);
 }
 
 const chooseImage = document.querySelector('.image-file');
@@ -91,7 +75,7 @@ if (form) {
           },
           onSuccess: (event) => {
             const db = event.target.result;
-            newsDB.addOneDocument(newNew);
+            newsDB.addOneDocument(newArticle);
           },
           onError: (event) => {
             console.log('error opening database ' + event.target.errorCode);
@@ -99,15 +83,13 @@ if (form) {
         });
       }
     }
-    snackbar.setText('Article added. 🧨🧨✨✨');
-    snackbar.show();
-    snackbar.hide(2500);
+    showSnackbar('Article added. 🧨🧨✨✨');
     form.reset();
     imagePreview.setAttribute('src', 'https://dummyimage.com/640x360/fff/aaa');
   });
 }
 
-window.addEventListener('online', () => {
+window.addEventListener('online', async () => {
   if (!localStorage) {
     newsDB = new IndexedDB({
       DBName: 'news',
@@ -122,7 +104,9 @@ window.addEventListener('online', () => {
       }
     });
   }
-  render(newsCardRow, state.news, getArticleHtml);
+  const lastAddedNew = state.news[state.news.length - 1];
+  await api.addNew(lastAddedNew);
+  renderAsyncNews();
 
   useLocalStorage ? removeFromStorage('news') : newsDB.clearDB();
 });

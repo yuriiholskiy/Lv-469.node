@@ -1,5 +1,5 @@
 const commentStore = 'comments';
-let commentsDB = null; 
+let commentsDB = null;
 let state = {
   nickname: '',
   content: '',
@@ -10,27 +10,11 @@ const content = form['comment-content'];
 const nickname = form['nickname'];
 const commentsCardRow = document.querySelector('.comment-wrap');
 
-window.addEventListener('load', async () => {
-  if(!state.comments.length) {
-    render(commentsCardRow, [], getLoaderHtml);
-  }
-  window.setTimeout(async () => {
-    const { data } = await api.getComments();
-    const { error, comments } = data;
-    if(!error && isOnline()) {
-      setState({
-        comments
-      });
-      render(commentsCardRow, comments, getCommentHtml);
-    } else {
-      render(commentsCardRow, [], 'Some server error happens');
-    }
-  }, 500);
-});
+window.addEventListener('load', renderAsyncComments);
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-  if(!content.checkValidity()) return;
+  if (!content.checkValidity()) return;
   setState({
     nickname: nickname.value,
     content: content.value
@@ -40,7 +24,7 @@ form.addEventListener('submit', async (event) => {
     author: state.nickname,
     date: new Date().toLocaleString()
   };
-  
+
   const newState = {
     nickname: '',
     content: '',
@@ -49,11 +33,11 @@ form.addEventListener('submit', async (event) => {
 
   setState(newState);
 
-  if(isOnline()) {
+  if (isOnline()) {
     await api.addComment(newComment);
     render(commentsCardRow, state.comments, getCommentHtml);
   } else {
-    if(useLocalStorage) {
+    if (useLocalStorage) {
       setToStorage('comments', state.comments);
     } else {
       commentsDB = new IndexedDB({
@@ -62,7 +46,9 @@ form.addEventListener('submit', async (event) => {
         store: commentStore,
         onUpgrageNeeded: (event) => {
           const db = event.target.result;
-          let data = db.createObjectStore(commentStore, {autoIncrement: true});
+          let data = db.createObjectStore(commentStore, {
+            autoIncrement: true
+          });
         },
         onSuccess: (event) => {
           const db = event.target.result;
@@ -79,19 +65,16 @@ form.addEventListener('submit', async (event) => {
       });
     }
   }
-  snackbar.setText('Comment added. 🧨🧨✨✨');
-  snackbar.show();
-  snackbar.hide(2500);
+  showSnackbar('Comment added. 🧨🧨✨✨');
   form.reset();
 });
 
+window.addEventListener('online', async () => {
+  showSnackbar('You online now. 🟢🟢🟢', 3000);
 
-window.addEventListener('online', () => {
-  render(commentsCardRow, state.comments, getCommentHtml);
-  
+  const lastAddedComment = state.comments[state.comments.length - 1];
+  await api.addComment(lastAddedComment);
+  renderAsyncComments();
+
   useLocalStorage ? removeFromStorage('comments') : commentsDB.clearDB();
 });
-
-// window.addEventListener('offline', () => {
-//   console.log('offline');
-// });
