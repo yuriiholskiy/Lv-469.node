@@ -123,10 +123,6 @@ const api = {
   }
 };
 
-window.addEventListener('offline', () => {
-  showSnackbar('You offline now. 🔴🔴🔴', 3000);
-});
-
 const renderAsyncNews = () => {
   if (!state.news.length) {
     render(newsCardRow, [], getLoaderHtml);

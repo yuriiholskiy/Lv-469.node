@@ -7,7 +7,6 @@ https://github.com/yuriiholskiy/Lv-469.node/tree/master/webtask;
 then go to the server folder and also "cd server && npm i";
 (This will install all dependencies)
 
-4) Go to server folder and run command "npm run start";
-(This is connect to database)
-
-5) Open index.html(or other file) and here we go. 
+4) Go to root folder and run command "npm run dev";
+(This is connect to database and run client) and here we go.
+ 

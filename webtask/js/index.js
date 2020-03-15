@@ -9,7 +9,9 @@ let state = {
 const newsCardRow = document.querySelector('.news-cards');
 const newsFromStorage = getFromStorage('news') || [];
 if (window.location.pathname.includes('/news.html')) {
-  window.addEventListener('load', renderAsyncNews);
+  window.addEventListener('load', () => {
+    initialRender();
+  });
 }
 
 const chooseImage = document.querySelector('.image-file');
@@ -90,6 +92,10 @@ if (form) {
 }
 
 window.addEventListener('online', async () => {
+  showSnackbar('You online now. 🟢🟢🟢', 3000);
+  initialRender();
+});
+async function initialRender() {
   if (!localStorage) {
     newsDB = new IndexedDB({
       DBName: 'news',
@@ -104,9 +110,18 @@ window.addEventListener('online', async () => {
       }
     });
   }
-  const lastAddedNew = state.news[state.news.length - 1];
-  await api.addNew(lastAddedNew);
+  if (state.news.length) {
+    const lastAddedNew = state.news[state.news.length - 1];
+    await api.addNew(lastAddedNew);
+  }
   renderAsyncNews();
 
   useLocalStorage ? removeFromStorage('news') : newsDB.clearDB();
+}
+window.addEventListener('offline', () => {
+  showSnackbar(
+    'You offline now 🔴🔴🔴. Your new will be added after you restore internet connection',
+    3000
+  );
+  setState({ news: [] });
 });

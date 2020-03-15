@@ -72,9 +72,19 @@ form.addEventListener('submit', async (event) => {
 window.addEventListener('online', async () => {
   showSnackbar('You online now. 🟢🟢🟢', 3000);
 
-  const lastAddedComment = state.comments[state.comments.length - 1];
-  await api.addComment(lastAddedComment);
+  if (state.comments.length) {
+    const lastAddedComment = state.comments[state.comments.length - 1];
+    await api.addComment(lastAddedComment);
+  }
   renderAsyncComments();
 
   useLocalStorage ? removeFromStorage('comments') : commentsDB.clearDB();
+});
+
+window.addEventListener('offline', () => {
+  showSnackbar(
+    'You offline now 🔴🔴🔴. Your comment will be added after you restore internet connection.',
+    3000
+  );
+  setState({ comments: [] });
 });
